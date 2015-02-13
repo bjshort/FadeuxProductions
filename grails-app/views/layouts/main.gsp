@@ -12,8 +12,10 @@
 		<link rel="shortcut icon" href="${assetPath(src: 'favicon.ico')}" type="image/x-icon">
 		<link rel="apple-touch-icon" href="${assetPath(src: 'apple-touch-icon.png')}">
 		<link rel="apple-touch-icon" sizes="114x114" href="${assetPath(src: 'apple-touch-icon-retina.png')}">
-  		<asset:stylesheet src="application.css"/>
-		<asset:javascript src="application.js"/>
+  		<asset:stylesheet src="application.css" />
+		<asset:javascript src="application.js" />
+        <asset:stylesheet src="flexslider.css" />
+        <asset:javascript src="jquery.flexslider-min.js"/>
 		<g:layoutHead/>
 	</head>
 	<body>
@@ -26,12 +28,12 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Project name</a>
+				<a class="navbar-brand" href="#">Fadeux</a>
 			</div>
 			<div class="collapse navbar-collapse" id="navbar">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#about">About</a></li>
+					<li class="active"><g:link controller="homepage">Home</g:link></li>
+					<li><g:link controller="show" action="index">Shows</g:link></li>
 					<li><a href="#contact">Contact</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
