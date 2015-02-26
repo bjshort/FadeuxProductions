@@ -17,21 +17,13 @@
 	</head>
 	<body>
         <div class="row">
-            <!-- Place somewhere in the <body> of your page -->
             <div class="flexslider">
                 <ul class="slides">
-                    <li>
-                        <img src="http://placehold.it/940x528" />
-                    </li>
-                    <li>
-                        <img src="http://placehold.it/940x528" />
-                    </li>
-                    <li>
-                        <img src="http://placehold.it/940x528" />
-                    </li>
-                    <li>
-                        <img src="http://placehold.it/940x528" />
-                    </li>
+                    <g:each in="${showsWithCover}" var="show">
+                        <li>
+                            <img src="${show?.coverImage?.storedPath}" />
+                        </li>
+                    </g:each>
                 </ul>
             </div>
         </div>

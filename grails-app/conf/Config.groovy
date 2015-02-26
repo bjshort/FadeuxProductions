@@ -88,10 +88,12 @@ grails.hibernate.osiv.readonly = false
 environments {
     development {
         grails.logging.jul.usebridge = true
+        aws.bucket = "fadeux-dev"
     }
     production {
         grails.logging.jul.usebridge = false
         // TODO: grails.serverURL = "http://www.changeme.com"
+        aws.bucket = "faduex-prod"
     }
 }
 
@@ -134,3 +136,9 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/favicon.ico':                ['permitAll']
 ]
 
+
+cmt.asset.storage.path = "grails-app/assets/images/uploads"
+
+grails.plugin.awssdk.accessKey = "AKIAJXQAQJ6G6SKGSMCA"
+grails.plugin.awssdk.secretKey = "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"
+grails.plugin.awssdk.region = 'eu-west-1'

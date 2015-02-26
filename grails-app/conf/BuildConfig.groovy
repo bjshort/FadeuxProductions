@@ -18,7 +18,10 @@ grails.project.fork = [
     // configure settings for the run-war JVM
     war: [maxMemory: 768, minMemory: 64, debug: false, maxPerm: 256, forkReserve:false],
     // configure settings for the Console UI JVM
-    console: [maxMemory: 768, minMemory: 64, debug: false, maxPerm: 256]
+    console: [maxMemory: 768, minMemory: 64, debug: false, maxPerm: 256],
+
+    test: false,
+    run: false
 ]
 
 grails.project.dependency.resolver = "maven" // or ivy
@@ -70,6 +73,8 @@ grails.project.dependency.resolution = {
         compile ":twitter-bootstrap:3.3.2.1"
 
         compile ":spring-security-core:2.0-RC4"
+
+        compile ":aws-sdk:1.9.18"
 
         // Uncomment these to enable additional asset-pipeline capabilities
         //compile ":sass-asset-pipeline:1.9.0"

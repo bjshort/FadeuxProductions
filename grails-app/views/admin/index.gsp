@@ -25,12 +25,15 @@
     <div class="row">
         <table class="table table-striped">
             <thead>
-            <th>Title</th><th>Description</th><th></th>
+            <th>Title</th><th>Description</th><th>Cover Image</th><th></th>
             </thead>
             <tbody>
             <g:each in="${shows}" var="show">
                 <tr>
-                    <td>${show.title}</td><td>${show.description}</td><td><g:link action="displayEditShow" params="[id: show.id]">Edit</g:link></td>
+                    <td>${show.title}</td>
+                    <td>${show.description}</td>
+                    <td><img src="${show?.coverImage?.storedPath}" style="max-height: 150px;"></td>
+                    <td><g:link action="displayEditShow" params="[id: show.id]">Edit</g:link></td>
                 </tr>
             </g:each>
             </tbody>

@@ -5,8 +5,9 @@ class Show {
     String title
     String location
     String description
+    Asset coverImage
 
     static constraints = {
-
+        coverImage nullable: true
     }
 }
