@@ -8,7 +8,9 @@
     <table class="table table-striped">
         <g:each in="${shows}" var="show">
             <tr>
-                ${show}
+                <g:link controller="show" action="view" params="[id: show.id]" >
+                    ${show.title}
+                </g:link>
             </tr>
         </g:each>
     </table>

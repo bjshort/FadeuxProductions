@@ -19,10 +19,12 @@
         <div class="row">
             <div class="flexslider">
                 <ul class="slides">
-                    <g:each in="${showsWithCover}" var="show">
-                        <li>
-                            <img src="${show?.coverImage?.storedPath}" />
-                        </li>
+                    <g:each in="${shows}" var="show">
+                        <g:if test="${show.coverImage}">
+                            <li>
+                                <img src="${show?.coverImage?.storedPath}" />
+                            </li>
+                        </g:if>
                     </g:each>
                 </ul>
             </div>
@@ -33,7 +35,17 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
             <div class="col-xs-3 col-xs-offset-1">
-                <p>Sidebar</p>
+                <p>Show</p>
+
+                <ul>
+                    <g:each in="${shows}" var="show">
+                        <li>
+                            <g:link controller="show" action="view" params="[id: show.id]" >
+                                ${show.title}
+                            </g:link>
+                        </li>
+                    </g:each>
+                </ul>
             </div>
         </div>
 	</body>

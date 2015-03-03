@@ -9,5 +9,6 @@ class Show {
 
     static constraints = {
         coverImage nullable: true
+        description maxSize: 10000
     }
 }

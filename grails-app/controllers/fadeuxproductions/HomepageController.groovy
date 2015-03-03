@@ -6,6 +6,6 @@ class HomepageController {
 
     @Secured(['permitAll'])
     def index() {
-        render view: 'index', model: [showsWithCover: Show.findAllByCoverImageIsNotNull()]
+        render view: 'index', model: [shows: Show.all]
     }
 }
