@@ -1,0 +1,14 @@
+.navbar {
+    min-height: 250px;
+    margin-bottom: 0;
+}
+.navbar-default {
+    background-color: #FFF;
+}
+
+.flexslider {
+    border: none;
+}
+.flex-viewport {
+    max-height: 850px;
+}

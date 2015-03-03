@@ -12,9 +12,9 @@
 		<link rel="shortcut icon" href="${assetPath(src: 'favicon.ico')}" type="image/x-icon">
 		<link rel="apple-touch-icon" href="${assetPath(src: 'apple-touch-icon.png')}">
 		<link rel="apple-touch-icon" sizes="114x114" href="${assetPath(src: 'apple-touch-icon-retina.png')}">
+        <asset:stylesheet src="flexslider.css" />
   		<asset:stylesheet src="application.css" />
 		<asset:javascript src="application.js" />
-        <asset:stylesheet src="flexslider.css" />
         <asset:javascript src="jquery.flexslider-min.js"/>
 		<g:layoutHead/>
 	</head>
@@ -28,7 +28,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Fadeux</a>
+				<a class="navbar-brand" href="#"><asset:image src="FaDlowres.png" width="300" /> </a>
 			</div>
 			<div class="collapse navbar-collapse" id="navbar">
 				<ul class="nav navbar-nav">
@@ -40,7 +40,7 @@
 		</div>
 	</nav>
 
-	<div class="container">
+	<div class="container-fluid">
 		<g:layoutBody/>
 	</div>
 	</body>

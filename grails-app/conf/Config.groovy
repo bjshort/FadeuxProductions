@@ -136,9 +136,6 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/favicon.ico':                ['permitAll']
 ]
 
-
-cmt.asset.storage.path = "grails-app/assets/images/uploads"
-
-grails.plugin.awssdk.accessKey = "AKIAJXQAQJ6G6SKGSMCA"
-grails.plugin.awssdk.secretKey = "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"
+grails.plugin.awssdk.accessKey = "AKIAIAAVB6SJYZB6RETA"
+grails.plugin.awssdk.secretKey = "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"
 grails.plugin.awssdk.region = 'eu-west-1'
