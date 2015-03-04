@@ -90,6 +90,10 @@ environments {
         grails.logging.jul.usebridge = true
         aws.bucket = "fadeux-dev"
     }
+    pglocal {
+        aws.bucket = "fadeux-dev"
+        grails.gsp.enable.reload=true
+    }
     production {
         grails.logging.jul.usebridge = false
         // TODO: grails.serverURL = "http://www.changeme.com"

@@ -6,6 +6,8 @@ import org.apache.commons.io.FilenameUtils
 import com.amazonaws.services.s3.model.*
 import org.springframework.web.multipart.MultipartFile
 
+import java.text.SimpleDateFormat
+
 @Transactional
 class AssetService {
     def springSecurityService
@@ -60,11 +62,12 @@ class AssetService {
     }
 
     String generateS3URL(String filename, Boolean relative = false){
+        def date = new Date().format('dd-MM-yy')
         if(relative){
-            'images/' + filename
+            'images/' + filename + date
         } else {
             "https://s3-eu-west-1.amazonaws.com/" + grailsApplication.config.aws.bucket +
-                    "/images/" + filename
+                    "/images/" + filename + date
         }
     }
 

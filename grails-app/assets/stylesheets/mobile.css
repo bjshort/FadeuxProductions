@@ -79,4 +79,16 @@
 	.error ul {
 		margin-left: 0;
 	}
+
+
+
+
+    .navbar-brand img {
+        width: 80px;
+    }
+
+    .navbar {
+        min-height: 70px !important;
+        margin-bottom: 0;
+    }
 }

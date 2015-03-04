@@ -22,6 +22,15 @@ environments {
             url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
         }
     }
+    pglocal {
+        dataSource {
+            driverClassName = "org.postgresql.Driver"
+            dbCreate = "update"
+            url = "jdbc:postgresql://localhost:5432/fadeux-local"
+            username="postgres"
+            password="postgres"
+        }
+    }
     test {
         dataSource {
             dbCreate = "update"

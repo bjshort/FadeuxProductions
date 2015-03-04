@@ -1,5 +1,7 @@
 package fadeuxproductions.security
 
+import org.hibernate.annotations.Table
+
 class User {
 
 	transient springSecurityService
@@ -14,12 +16,14 @@ class User {
 	static transients = ['springSecurityService']
 
 	static constraints = {
+
 		username blank: false, unique: true
 		password blank: false
 	}
 
 	static mapping = {
 		password column: '`password`'
+        table name: 'Users'
 	}
 
 	Set<Role> getAuthorities() {
