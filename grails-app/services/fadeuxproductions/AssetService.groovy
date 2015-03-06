@@ -56,7 +56,7 @@ class AssetService {
     }
 
     private File multipartToFile(MultipartFile multipart) throws IllegalStateException, IOException{
-        File convFile = new File( multipart.getOriginalFilename());
+        File convFile = new File("tmp/" + multipart.getOriginalFilename());
         multipart.transferTo(convFile);
         return convFile;
     }
