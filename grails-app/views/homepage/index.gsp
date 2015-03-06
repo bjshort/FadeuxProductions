@@ -16,9 +16,12 @@
         </script>
 
 	</head>
-	<body id="homepage">
-        <div class="row">
-            <g:render template="/templates/homepage/carousel" model="[shows: shows]"/>
+	<body>
+
+        <div class="container-fluid">
+            <div class="row">
+                <g:render template="/templates/homepage/carousel" model="[shows: shows]"/>
+            </div>
         </div>
         <div class="section">
             <g:render template="/templates/homepage/currentShows" model="[shows: shows]"/>

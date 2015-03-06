@@ -75,8 +75,13 @@ ul.show-slider li:nth-child(2) {
     padding: 15px 0;
 }
 
-#homepage #currentShows {
-    position: relative;
+#currentShows {
+}
+.slick-slider {
+    overflow: hidden;
+}
+.slick-slider-container {
+    position: relative; !important;
 }
 
 #footer {
