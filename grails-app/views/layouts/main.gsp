@@ -17,39 +17,34 @@
   		<asset:stylesheet src="application.css" />
 		<asset:javascript src="application.js" />
         <asset:javascript src="jquery.flexslider-min.js"/>
+        <asset:stylesheet src="slick-theme.css" />
 		<g:layoutHead/>
 	</head>
 	<body>
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button class="navbar-toggle collapsed" aria-expanded="false" aria-controls="navbar" type="button" data-toggle="collapse" data-target="#navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#"><asset:image src="FaDlowres.png" width="240" /> </a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="navbar">
-                    <ul class="nav navbar-nav pull-right">
-                        <li class="active"><g:link controller="homepage">Home</g:link></li>
-                        <li><g:link controller="show" action="index">Shows</g:link></li>
-                        <li><a href="#contact">About us</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div><!--/.nav-collapse -->
-            </div>
-        </nav>
+       <g:render template="/templates/layout/header" />
 
         <div class="container-fluid">
             <g:layoutBody/>
         </div>
+
         <div class="container">
             <g:render template="/templates/layout/footer" />
         </div>
 
+        <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('.slick-slider').slick({
+                    dots: true,
+                    arrows: true,
+                    infinite: true,
+                    speed: 500,
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    autoplay: true
+                });
+            });
+        </script>
 	</body>
 </html>
 
