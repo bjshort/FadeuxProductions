@@ -72,13 +72,17 @@ ul.show-slider li:nth-child(2) {
 .section {
     min-height: 300px;
     background-color: #f5f5f5;
-    padding: 15px 0;
+    padding: 20px 0;
 }
 
 #currentShows {
 }
 .slick-slider {
-    overflow: hidden;
+
+}
+.slick-prev:before, .slick-next:before {
+    color: rgb(128, 95, 115);
+    font-size: 22px;
 }
 .slick-slider-container {
     position: relative; !important;

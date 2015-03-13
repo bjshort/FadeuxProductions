@@ -88,7 +88,7 @@
     }
 
     .navbar {
-        min-height: 70px !important;
+        /*min-height: 70px !important;*/
         margin-bottom: 0;
     }
 }

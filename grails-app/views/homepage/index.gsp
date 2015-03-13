@@ -4,17 +4,6 @@
 		<meta name="layout" content="main"/>
 		<title>Welcome to Grails</title>
 
-        <script>
-            // Can also be used with $(document).ready()
-            $(window).load(function() {
-                $('.flexslider').flexslider({
-                    animation: "fade",
-                    slideshow: "true",
-                    slideshowSpeed: 4000
-                });
-            });
-        </script>
-
 	</head>
 	<body>
 
