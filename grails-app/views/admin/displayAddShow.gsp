@@ -14,52 +14,65 @@
         </g:if>
         <g:hasErrors bean="${command}">
             <g:eachError bean="${command}">
-                <p>${it}</p>
+                <p class="error">${it.code}</p>
             </g:eachError>
         </g:hasErrors>
 
         <div class="row">
             <h2>Create a show</h2>
 
-            <g:form action="addShow">
+            <g:form action="addShow" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="title">Title</label>
                     <input name="title" type="text" class="form-control" placeholder="Title" aria-describedby="basic-addon2"  value="${command?.title}">
                 </div>
+
                 <div class="form-group">
                     <label for="description">Description</label>
                     <textarea class="form-control" rows="15" name="description" placeholder="Description">${command?.description}</textarea>
                 </div>
-                <div class="from-group">
+
+                <div class="form-group">
                     <label for="location">Location</label>
                     <input name="location" type="text" class="form-control" placeholder="Location" aria-describedby="basic-addon2" value="${command?.location}">
                 </div>
 
                 <g:if test="${command}">
-                    <div class="form-group">
-                        <label for="coverImage">Cover image</label>
-                        <div class="input-group">
-                            <span class="btn btn-default btn-file input-group-addon">
-                                Browse... <input name="coverImage" type="file">
-                            </span>
-                            <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1" readonly="true">
-                        </div>
-                    </div>
+                    <fieldset>
+                        <legend>Image assets</legend>
 
-                    <div class="form-group">
-                        <label for="thumbnailImage">Thumbnail</label>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="coverImage">Cover image</label>
+                                <div class="input-group">
+                                    <span class="input-group-btn">
+                                        <span class="btn btn-primary btn-file">
+                                            Browse&hellip; <input type="file" name="coverImage">
+                                        </span>
+                                    </span>
+                                    <input type="text" class="form-control" value="${command?.coverImage?.name ?: show?.coverImage?.fileName}" readonly>
+                                </div>
+                            </div>
 
-                        <div class="input-group">
-                            <span class="btn btn-default btn-file input-group-addon">
-                                Browse... <input name="thumbnailImage" type="file">
-                            </span>
-                            <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1" readonly="true">
+                            <div class="form-group  col-md-6">
+                                <label for="thumbnailImage">Thumbnail</label>
+                                <div class="input-group">
+                                    <span class="input-group-btn">
+                                        <span class="btn btn-primary btn-file">
+                                            Browse&hellip; <input type="file" name="thumbnailImage">
+                                        </span>
+                                    </span>
+                                    <input type="text" class="form-control" value="${command?.thumbnailImage?.name ?: show?.thumbnail?.fileName}" readonly>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+
+                    </fieldset>
+
                  </g:if>
 
                 <div class="form-group">
-                    <button class="btn btn-default" type="submit">${command?.id ? "Update" : "Create"}</button>
+                    <button class="btn btn-default" type="submit">${command?.id ? "Update & continue" : "Create & continue"}</button>
                 </div>
 
                 <g:hiddenField name="id" value="${command?.id}" />
