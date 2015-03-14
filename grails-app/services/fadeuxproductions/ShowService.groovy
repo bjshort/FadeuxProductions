@@ -23,10 +23,22 @@ class ShowService {
     }
 
     @NotTransactional
-    def addAssetToShow(Asset asset, Long showId) {
+    def addAssetToShow(Asset asset, Long showId, AssetType type) {
         def show = Show.findById(showId)
         if (asset) {
-            show.coverImage = asset
+            switch (type) {
+                case AssetType.COVER:
+                    show.coverImage = asset
+                    break
+                case AssetType.THUMBNAIL:
+                    show.thumbnail = asset
+                    break
+                case AssetType.SUPPLEMENT:
+                    show.addToImages(asset)
+                    break
+                default:
+                    break
+            }
             show.save(failOnError: true)
         }
     }

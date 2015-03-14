@@ -13,8 +13,34 @@ class AssetService {
     def springSecurityService
     def grailsApplication
     def amazonWebService
+    def showService
 
-    def saveAsset(MultipartFile assetFile, Long showId) {
+    def addAsset(def asset, Long showId, AssetType type) {
+        String error = null
+        Asset uploadedAsset = null
+
+        if (asset != null && asset instanceof MultipartFile)
+        {
+            MultipartFile file = asset
+            if(file.size > 2000000){
+                error = "Size is over 2mb, nope!"
+            } else {
+                def savedAsset = saveAsset(file, showId, type)
+                if(!savedAsset){
+                    error = "Upload failed!!!"
+                } else {
+                    showService.addAssetToShow(savedAsset, showId, type)
+                    uploadedAsset = savedAsset
+                }
+            }
+        } else {
+            error = "The uploaded file was null."
+        }
+
+        [error: error, asset: uploadedAsset]
+    }
+
+    def saveAsset(MultipartFile assetFile, Long showId, AssetType type) {
         def show = Show.findById(showId)
 
         def extension = FilenameUtils.getExtension(assetFile.getOriginalFilename())
@@ -23,11 +49,25 @@ class AssetService {
             false
         }
 
-        if(show.coverImage != null){
-            def id = show.coverImage.id
-            show.coverImage = null
-            show.save()
-            deleteAsset(id)
+        switch (type){
+            case AssetType.COVER:
+                if(show.coverImage){
+                    def id = show.coverImage.id
+                    show.coverImage = null
+                    show.save()
+                    deleteAsset(id)
+                }
+                break
+            case AssetType.THUMBNAIL:
+                if(show.thumbnail){
+                    def id = show.thumbnail.id
+                    show.thumbnail = null
+                    show.save()
+                    deleteAsset(id)
+                }
+                break
+            default:
+                break
         }
 
         new Asset(fileName: show.title + "." + extension,

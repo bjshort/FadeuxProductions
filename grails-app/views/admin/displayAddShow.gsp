@@ -6,7 +6,70 @@
 </head>
 <body>
 <div class="container">
-    <div class="col-xs-8 col-xs-offset-4">
+    <div class="col-xs-4 sidebar">
+        <g:if test="${command}">
+        <div>
+            <h3>Cover image:</h3>
+            <div id="coverImage">
+                <g:if test="${show?.coverImage}">
+                    <img src="${show.coverImage.storedPath}" width="300" />
+                </g:if>
+                <g:else>
+                    <p>You have not uploaded a cover for this show.</p>
+                </g:else>
+            </div>
+            <g:form name="coverImageForm" action="changeCoverImage" enctype="multipart/form-data">
+                <g:if test="${flash.coverImageError}">
+                    <div class="error"><p>${flash.coverImageError}</p></div>
+                </g:if>
+
+                <div class="input-group">
+                    <span class="input-group-btn">
+                            <span class="btn btn-primary btn-file">
+                                Browse&hellip; <input type="file" name="coverImage">
+                            </span>
+                            <g:hiddenField name="showId" value="${command?.id}" />
+                    </span>
+                    <input type="text" class="form-control" value="${command?.coverImage?.name ?: show?.coverImage?.fileName}" readonly>
+                </div>
+
+                <g:submitButton class="btn btn-default" name="submitCoverImage" value="Upload" />
+            </g:form>
+        </div>
+
+        <div>
+            <h3>Thumbnail image:</h3>
+            <div id="thumbnailImage">
+                <g:if test="${show?.thumbnail}">
+                    <img src="${show.thumbnail.storedPath}" width="300" />
+                </g:if>
+                <g:else>
+                    <p>You have not uploaded a thumbnail for this show.</p>
+                </g:else>
+            </div>
+            <g:form name="thumbnailImageForm" action="changeThumbnailImage" enctype="multipart/form-data">
+                <g:if test="${flash.thumbnailImageError}">
+                    <div class="error"><p>${flash.thumbnailImageError}</p></div>
+                </g:if>
+
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <span class="btn btn-primary btn-file">
+                            Browse&hellip; <input type="file" name="thumbnailImage">
+                        </span>
+                        <g:hiddenField name="showId" value="${command?.id}" />
+                    </span>
+                    <input type="text" class="form-control" value="${command?.thumbnailImage?.name ?: show?.thumbnail?.fileName}" readonly>
+                </div>
+
+                <g:submitButton class="btn btn-default" name="submitThumbnailImage" value="Upload" />
+            </g:form>
+        </div>
+        </g:if>
+
+
+    </div>
+    <div class="col-xs-8">
         <g:if test="${flash.message}">
             <div class="row">
                 <div class="alert alert-success" role="alert">${flash.message}</div>
@@ -36,40 +99,6 @@
                     <label for="location">Location</label>
                     <input name="location" type="text" class="form-control" placeholder="Location" aria-describedby="basic-addon2" value="${command?.location}">
                 </div>
-
-                <g:if test="${command}">
-                    <fieldset>
-                        <legend>Image assets</legend>
-
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <label for="coverImage">Cover image</label>
-                                <div class="input-group">
-                                    <span class="input-group-btn">
-                                        <span class="btn btn-primary btn-file">
-                                            Browse&hellip; <input type="file" name="coverImage">
-                                        </span>
-                                    </span>
-                                    <input type="text" class="form-control" value="${command?.coverImage?.name ?: show?.coverImage?.fileName}" readonly>
-                                </div>
-                            </div>
-
-                            <div class="form-group  col-md-6">
-                                <label for="thumbnailImage">Thumbnail</label>
-                                <div class="input-group">
-                                    <span class="input-group-btn">
-                                        <span class="btn btn-primary btn-file">
-                                            Browse&hellip; <input type="file" name="thumbnailImage">
-                                        </span>
-                                    </span>
-                                    <input type="text" class="form-control" value="${command?.thumbnailImage?.name ?: show?.thumbnail?.fileName}" readonly>
-                                </div>
-                            </div>
-                        </div>
-
-                    </fieldset>
-
-                 </g:if>
 
                 <div class="form-group">
                     <button class="btn btn-default" type="submit">${command?.id ? "Update & continue" : "Create & continue"}</button>

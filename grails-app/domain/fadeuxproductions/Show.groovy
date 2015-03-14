@@ -8,6 +8,8 @@ class Show {
     Asset coverImage
     Asset thumbnail
 
+    static hasMany = [images: Asset]
+
     static constraints = {
         coverImage nullable: true
         thumbnail nullable: true
