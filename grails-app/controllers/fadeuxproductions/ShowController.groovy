@@ -5,7 +5,11 @@ import org.springframework.web.multipart.MultipartFile
 class ShowController {
 
     def index() {
-        [shows: Show.all]
+        Random rand = new Random()
+        def shows = Show.findAllByCoverImageIsNotNull()
+        def random = rand.nextInt(shows.size())
+        println("Random: " + random + " Shows size: " + shows.size())
+        [shows: Show.all, background: shows[random].coverImage.storedPath]
     }
 
     def view(Long id){
