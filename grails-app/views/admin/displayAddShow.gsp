@@ -24,7 +24,7 @@
                                 </div>
                                 <g:form name="coverImageForm" action="changeCoverImage" enctype="multipart/form-data">
                                     <g:if test="${flash.coverImageError}">
-                                        <div class="error"><p>${flash.coverImageError}</p></div>
+                                        <div class="alert alert-danger" role="alert">${flash.coverImageError}</div>
                                     </g:if>
 
                                     <div class="input-group">
@@ -53,7 +53,7 @@
                                 </div>
                                 <g:form name="thumbnailImageForm" action="changeThumbnailImage" enctype="multipart/form-data">
                                     <g:if test="${flash.thumbnailImageError}">
-                                        <div class="error"><p>${flash.thumbnailImageError}</p></div>
+                                        <div class="alert alert-danger" role="alert">${flash.thumbnailImageError}</div>
                                     </g:if>
 
                                     <div class="input-group">

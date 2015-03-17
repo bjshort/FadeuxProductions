@@ -4,6 +4,8 @@ import grails.validation.Validateable
 import org.springframework.web.multipart.MultipartFile
 import com.amazonaws.services.s3.model.*
 
+import javax.imageio.ImageIO
+
 class AdminController {
 
     def showService
@@ -51,9 +53,14 @@ class AdminController {
 
     def changeThumbnailImage(Long showId){
         MultipartFile thumbnailImage = params.thumbnailImage
-        def response = assetService.addAsset(thumbnailImage, showId, AssetType.THUMBNAIL)
+        def image = ImageIO.read(thumbnailImage.getInputStream())
+        if(image.getWidth() != 260 || image.getHeight() != 314){
+            flash.thumbnailImageError = "Thumnails must be 260 x 314 pixels - resize the image before uploading."
+        } else {
+            def response = assetService.addAsset(thumbnailImage, showId, AssetType.THUMBNAIL)
+            flash.thumbnailImageError = response.error
+        }
 
-        flash.thumbnailError = response.error
         redirect(action: 'displayEditShow', params: [id: showId])
     }
 

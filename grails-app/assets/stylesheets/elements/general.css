@@ -82,8 +82,16 @@ ul.show-slider li:nth-child(2) {
 }
 .slick-prev:before, .slick-next:before {
     color: rgb(128, 95, 115);
-    font-size: 22px;
+    font-size: 26px;
 }
+
+.slick-prev:before {
+    content: '<';
+}
+.slick-next:before {
+    content: '>';
+}
+
 .slick-slider-container {
     position: relative; !important;
 }
