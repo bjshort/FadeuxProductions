@@ -1,3 +1,15 @@
 #show-gallery {
     margin-top: 35px;
 }
+
+#show-gallery .show {
+
+}
+
+#show-gallery .show img {
+    display: block;
+}
+
+#show-gallery .show h5 {
+    display: block;
+}

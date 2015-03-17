@@ -16,6 +16,9 @@
                 <li><g:link controller="show" action="index">Shows</g:link></li>
                 <li><a href="#contact">About us</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <sec:ifAllGranted roles="ROLE_ADMIN">
+                    <li><g:link controller="admin" action="index">Admin</g:link></li>
+                </sec:ifAllGranted>
             </ul>
         </div><!--/.nav-collapse -->
     </div>

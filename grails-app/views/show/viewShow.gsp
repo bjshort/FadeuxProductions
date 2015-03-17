@@ -15,7 +15,6 @@
 </head>
 
 <body>
-
 <div id="container" class="container-fluid">
     <div class="container">
         <div class="row">
@@ -62,7 +61,6 @@
 <script type="text/javascript">
     $(document).ready(function(){
         var url = '${show.coverImage.storedPath}';
-
         $('#container').css('background-image', 'url("' + url + '")');
 
         var $container = $('#gallery');

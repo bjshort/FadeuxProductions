@@ -37,7 +37,7 @@ class AdminController {
     }
 
     def displayEditShow(Long id){
-        def show = Show.findById(id)
+        Show show = Show.findById(id)
         render view: 'displayAddShow', model: [command: ShowCommand.buildFromShow(show), show: show]
     }
 
