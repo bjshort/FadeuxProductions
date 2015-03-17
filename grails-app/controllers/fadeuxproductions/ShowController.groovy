@@ -5,7 +5,12 @@ class ShowController {
     def index() {
         Random rand = new Random()
         def shows = Show.findAllByCoverImageIsNotNullAndThumbnailIsNotNull()
-        [shows: shows, background: shows[rand.nextInt(shows.size())].coverImage.storedPath]
+        if(shows){
+            [shows: shows, background: shows[rand.nextInt(shows.size())].coverImage.storedPath]
+        } else {
+            render 404
+        }
+
     }
 
     def view(Long id){
