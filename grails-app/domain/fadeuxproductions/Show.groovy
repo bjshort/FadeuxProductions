@@ -7,6 +7,7 @@ class Show {
     String description
     Asset coverImage
     Asset thumbnail
+    Date dateCreated
 
     static hasMany = [images: Asset]
 
@@ -14,5 +15,9 @@ class Show {
         coverImage nullable: true
         thumbnail nullable: true
         description maxSize: 10000
+    }
+
+    static mapping = {
+        autoTimestamp true
     }
 }

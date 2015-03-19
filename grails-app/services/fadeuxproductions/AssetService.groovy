@@ -1,12 +1,9 @@
 package fadeuxproductions
 
-import fadeuxproductions.security.User
 import grails.transaction.Transactional
 import org.apache.commons.io.FilenameUtils
 import com.amazonaws.services.s3.model.*
 import org.springframework.web.multipart.MultipartFile
-
-import java.text.SimpleDateFormat
 
 @Transactional
 class AssetService {
@@ -42,12 +39,9 @@ class AssetService {
 
     def saveAsset(MultipartFile assetFile, Long showId, AssetType type) {
         def show = Show.findById(showId)
+        def uploadURLs = generateS3URL(assetFile.originalFilename)
 
-        def extension = FilenameUtils.getExtension(assetFile.getOriginalFilename())
-
-        if(!uploadAssetToS3(assetFile)){
-            false
-        }
+        if(!uploadAssetToS3(assetFile, uploadURLs.relative)){ false }
 
         switch (type){
             case AssetType.COVER:
@@ -70,22 +64,21 @@ class AssetService {
                 break
         }
 
-        new Asset(fileName: show.title + "." + extension,
-                originalFileName: assetFile.originalFilename,
-                storedPath: generateS3URL(assetFile.originalFilename),
-                extension: extension,
+        new Asset(
+                fileName: assetFile.originalFilename,
+                storedPath: uploadURLs.full,
+                relativePath: uploadURLs.relative,
                 uploadedBy: springSecurityService.getCurrentUser(),
-                contentType: assetFile.getContentType(),
                 show: show).save(failOnError: true)
     }
 
-    def uploadAssetToS3(MultipartFile assetFile) {
+    def uploadAssetToS3(MultipartFile assetFile, String relativeURL) {
         Boolean ret = true
         try {
             amazonWebService.s3.putObject(
                     new PutObjectRequest(
                             (String) grailsApplication.config.aws.bucket,
-                            generateS3URL(assetFile.originalFilename, true),
+                            relativeURL,
                             multipartToFile(assetFile)
                     ).withCannedAcl(CannedAccessControlList.PublicRead))
         } catch (Exception e){
@@ -101,14 +94,14 @@ class AssetService {
         return convFile;
     }
 
-    String generateS3URL(String filename, Boolean relative = false){
-        def date = new Date().format('dd-MM-yy')
-        if(relative){
-            'images/' + filename + date
-        } else {
-            "https://s3-eu-west-1.amazonaws.com/" + grailsApplication.config.aws.bucket +
-                    "/images/" + filename + date
-        }
+    Map<String, String> generateS3URL(String filename){
+        def extension = FilenameUtils.getExtension(filename)
+        def name = FilenameUtils.getBaseName(filename)
+        def date = new Date().format('dd-MM-yy_HH-mm-ss')
+        def fullName = name + date + "." + extension
+
+        [full: "https://s3-eu-west-1.amazonaws.com/" + grailsApplication.config.aws.bucket +
+                "/images/" + fullName, relative: 'images/' + fullName]
     }
 
     def deleteAsset(id){
@@ -122,7 +115,7 @@ class AssetService {
         try {
             amazonWebService.s3.deleteObject(
                     (String) grailsApplication.config.aws.bucket,
-                    generateS3URL(asset.originalFileName, true)
+                    asset.relativePath
             )
         } catch (Exception e){
             println e.message

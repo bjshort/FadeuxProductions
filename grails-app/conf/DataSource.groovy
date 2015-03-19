@@ -31,6 +31,15 @@ environments {
             password="postgres"
         }
     }
+    pgcloud {
+        dataSource {
+            driverClassName = "org.postgresql.Driver"
+            dbCreate = "update"
+            url = "jdbc:postgresql://fadeux-dev.csinukzqg0p4.eu-west-1.rds.amazonaws.com:5432/fadeux-dev"
+            username="fadeux"
+            password="faddyfaddyoneone"
+        }
+    }
     test {
         dataSource {
             dbCreate = "update"
