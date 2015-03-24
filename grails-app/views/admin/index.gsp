@@ -65,19 +65,29 @@
                                     <div class="tab-content">
                                         <div role="tabpanel" class="tab-pane active" id="homepage">
                                             <g:form controller="admin" action="editContent" params="[contentTag: 'homepageDescription']">
-                                                <label for="carosel">Introduction</label>
-                                                <div id="carosel" class="form-group">
-                                                    <g:textField class="form-control" name="content.homepageTitle" value="${fadeuxproductions.Content.findByKey('homepageTitle')?.message ?: ""}" />
-                                                    <g:textArea rows="10" class="form-control" name="content.homepageDescription" value="${fadeuxproductions.Content.findByKey('homepageDescription')?.message ?: ""}" />
-                                                </div>
+                                                <fieldset>
+                                                    <legend>Introduction (Text on-top of carousel)</legend>
+                                                    <div class="form-group">
+                                                        <label for="content.homepageTitle">Title</label>
+                                                        <g:textField class="form-control" name="content.homepageTitle" value="${fadeuxproductions.Content.findByKey('homepageTitle')?.message ?: ""}" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="content.homepageDescription">Company Intro</label>
+                                                        <g:textArea rows="10" class="form-control" name="content.homepageDescription" value="${fadeuxproductions.Content.findByKey('homepageDescription')?.message ?: ""}" />
+                                                    </div>
+                                                </fieldset>
 
-                                                <label for="carosel">List of current shows</label>
-                                                <div id="carosel" class="form-group">
-                                                    <g:textField class="form-control" name="content.homepageShowsTitle" value="${fadeuxproductions.Content.findByKey('homepageShowsTitle')?.message ?: ""}" />
-                                                    <g:textArea rows="10" class="form-control" name="content.homepageShowsBody" value="${fadeuxproductions.Content.findByKey('homepageShowsBody')?.message ?: ""}" />
-                                                </div>
-
-
+                                                <fieldset>
+                                                    <legend>List of current shows</legend>
+                                                    <div class="form-group">
+                                                        <label for="content.homepageShowsTitle">Title</label>
+                                                        <g:textField class="form-control" name="content.homepageShowsTitle" value="${fadeuxproductions.Content.findByKey('homepageShowsTitle')?.message ?: ""}" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="content.homepageShowsBody">Body text</label>
+                                                        <g:textArea rows="10" class="form-control" name="content.homepageShowsBody" value="${fadeuxproductions.Content.findByKey('homepageShowsBody')?.message ?: ""}" />
+                                                    </div>
+                                                </fieldset>
                                                 <g:submitButton class="btn btn-primary" name="submit" value="Save" />
                                             </g:form>
                                         </div>
