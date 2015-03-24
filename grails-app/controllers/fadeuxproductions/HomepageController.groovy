@@ -8,6 +8,8 @@ class HomepageController {
     def index() {
         render view: 'index', model: [shows: Show.all,
                                       content: [title: Content?.findByKey('homepageTitle')?.message,
-                                                description: Content?.findByKey('homepageDescription')?.message]]
+                                                description: Content?.findByKey('homepageDescription')?.message,
+                                                showsTitle: Content?.findByKey('homepageShowsTitle')?.message,
+                                                showsDescription: Content?.findByKey('homepageShowsBody')?.message]]
     }
 }

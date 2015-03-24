@@ -1,9 +1,6 @@
 <div id="currentShows" class="container">
-        <h2>Our Productions...</h2>
-        <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain
-        was born and I will give you a complete account of the system, and expound the actual teachings
-        of the great explorer of the truth, the master-builder of human happiness. No one rejects,
-        dislikes, or avoids pleasure itself, be</p>
+        <h2>${content?.showsTitle ?: "Our Productions..."}</h2>
+        <p>${content?.showsDescription ?: "A proper section of text needs to be entered in the Admin panel."}</p>
 
 
         <div class="slick-slider-container">

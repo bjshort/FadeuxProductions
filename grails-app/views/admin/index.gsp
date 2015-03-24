@@ -65,11 +65,20 @@
                                     <div class="tab-content">
                                         <div role="tabpanel" class="tab-pane active" id="homepage">
                                             <g:form controller="admin" action="editContent" params="[contentTag: 'homepageDescription']">
-                                                <div class="form-group">
+                                                <label for="carosel">Introduction</label>
+                                                <div id="carosel" class="form-group">
                                                     <g:textField class="form-control" name="content.homepageTitle" value="${fadeuxproductions.Content.findByKey('homepageTitle')?.message ?: ""}" />
                                                     <g:textArea rows="10" class="form-control" name="content.homepageDescription" value="${fadeuxproductions.Content.findByKey('homepageDescription')?.message ?: ""}" />
-                                                    <g:submitButton class="btn btn-default" name="submit" value="Save" />
                                                 </div>
+
+                                                <label for="carosel">List of current shows</label>
+                                                <div id="carosel" class="form-group">
+                                                    <g:textField class="form-control" name="content.homepageShowsTitle" value="${fadeuxproductions.Content.findByKey('homepageShowsTitle')?.message ?: ""}" />
+                                                    <g:textArea rows="10" class="form-control" name="content.homepageShowsBody" value="${fadeuxproductions.Content.findByKey('homepageShowsBody')?.message ?: ""}" />
+                                                </div>
+
+
+                                                <g:submitButton class="btn btn-primary" name="submit" value="Save" />
                                             </g:form>
                                         </div>
                                         <div role="tabpanel" class="tab-pane" id="about-us">About Us</div>
