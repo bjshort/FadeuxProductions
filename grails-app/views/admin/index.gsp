@@ -91,8 +91,38 @@
                                                 <g:submitButton class="btn btn-primary" name="submit" value="Save" />
                                             </g:form>
                                         </div>
-                                        <div role="tabpanel" class="tab-pane" id="about-us">About Us</div>
-                                        <div role="tabpanel" class="tab-pane" id="contact">Contact</div>
+                                        <div role="tabpanel" class="tab-pane" id="about-us">
+                                            <g:form controller="admin" action="editContent">
+                                                <fieldset>
+                                                    <legend>About Us</legend>
+                                                    <div class="form-group">
+                                                        <label for="content.aboutUsTitle">Title</label>
+                                                        <g:textField class="form-control" name="content.aboutUsTitle" value="${fadeuxproductions.Content.findByKey('aboutUsTitle')?.message ?: ""}" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="content.aboutUsDescription">Body text</label>
+                                                        <g:textArea rows="10" class="form-control" name="content.aboutUsDescription" value="${fadeuxproductions.Content.findByKey('aboutUsDescription')?.message ?: ""}" />
+                                                    </div>
+                                                </fieldset>
+                                                <g:submitButton class="btn btn-primary" name="submit" value="Save" />
+                                            </g:form>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="contact">
+                                            <g:form controller="admin" action="editContent">
+                                                <fieldset>
+                                                    <legend>Contact Us</legend>
+                                                    <div class="form-group">
+                                                        <label for="content.contactUsTitle">Title</label>
+                                                        <g:textField class="form-control" name="content.contactUsTitle" value="${fadeuxproductions.Content.findByKey('contactUsTitle')?.message ?: ""}" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="content.contactUsDescription">Body text</label>
+                                                        <g:textArea rows="10" class="form-control" name="content.contactUsDescription" value="${fadeuxproductions.Content.findByKey('contactUsDescription')?.message ?: ""}" />
+                                                    </div>
+                                                </fieldset>
+                                                <g:submitButton class="btn btn-primary" name="submit" value="Save" />
+                                            </g:form>
+                                        </div>
                                     </div>
 
                                 </div>

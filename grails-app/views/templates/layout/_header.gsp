@@ -14,8 +14,8 @@
             <ul class="nav navbar-nav pull-right">
                 <li class="active"><g:link controller="homepage">Home</g:link></li>
                 <li><g:link controller="show" action="index">Shows</g:link></li>
-                <li><a href="#contact">About us</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><g:link controller="aboutUs">About us</g:link></li>
+                <li><g:link controller="contactUs">Contact</g:link></li>
                 <sec:ifAllGranted roles="ROLE_ADMIN">
                     <li><g:link controller="admin" action="index">Admin</g:link></li>
                 </sec:ifAllGranted>
