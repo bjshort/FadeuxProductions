@@ -65,10 +65,23 @@ class AdminController {
         redirect(action: 'displayEditShow', params: [id: showId])
     }
 
-    def editContent(String contentTag, String message){
-        contentService.editContent(contentTag, message)
+    def editContent(){
+        if(!params.content){
+            flash.message = "No content was submitted, apparently..."
+            redirect(action: 'index')
+            return
+        } else if (!(params.content instanceof Map)) {
+            flash.message = "Content didn't convert to a Map.....tell Brendan"
+            redirect(action: 'index')
+            return
+        } else {
+            Map content = params.content
+            content.each {
+                contentService.editContent((String) it.key, (String) it.value)
+            }
+        }
 
-        flash.message "Content was updated"
+        flash.message = "Content was updated"
         redirect(action: 'index')
     }
 

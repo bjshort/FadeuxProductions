@@ -51,15 +51,32 @@
                 <div style="margin-top: 20px;" class="row">
                     <div class="col-md-12">
                         <div class="bubble">
-                            <h4>Edit content</h4>
+                            <h2>Edit content</h2>
+                                <div role="tabpanel">
 
-                            <g:form controller="admin" action="editContent" params="[contentTag: 'homepageDescription']">
-                                <div class="form-group">
-                                    <g:textField class="form-control" name="message" value="${fadeuxproductions.Content.findByKey('homepageDescription')?.message ?: ""}" />
-                                    <g:submitButton class="btn btn-default" name="submit" value="Save" />
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li role="presentation" class="active"><a href="#homepage" aria-controls="homepage" role="tab" data-toggle="tab">Homepage</a></li>
+                                        <li role="presentation"><a href="#about-us" aria-controls="about-us" role="tab" data-toggle="tab">About Us</a></li>
+                                        <li role="presentation"><a href="#contact" aria-controls="contact" role="tab" data-toggle="tab">Contact</a></li>
+                                    </ul>
+
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane active" id="homepage">
+                                            <g:form controller="admin" action="editContent" params="[contentTag: 'homepageDescription']">
+                                                <div class="form-group">
+                                                    <g:textField class="form-control" name="content.homepageTitle" value="${fadeuxproductions.Content.findByKey('homepageTitle')?.message ?: ""}" />
+                                                    <g:textArea rows="10" class="form-control" name="content.homepageDescription" value="${fadeuxproductions.Content.findByKey('homepageDescription')?.message ?: ""}" />
+                                                    <g:submitButton class="btn btn-default" name="submit" value="Save" />
+                                                </div>
+                                            </g:form>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="about-us">About Us</div>
+                                        <div role="tabpanel" class="tab-pane" id="contact">Contact</div>
+                                    </div>
+
                                 </div>
-
-                            </g:form>
                         </div>
                     </div>
                 </div>
