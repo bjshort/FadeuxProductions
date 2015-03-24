@@ -11,6 +11,7 @@ class AdminController {
     def showService
     def assetService
     def amazonWebService
+    def contentService
 
     def index() {
         [shows: Show.all]
@@ -62,6 +63,13 @@ class AdminController {
         }
 
         redirect(action: 'displayEditShow', params: [id: showId])
+    }
+
+    def editContent(String contentTag, String message){
+        contentService.editContent(contentTag, message)
+
+        flash.message "Content was updated"
+        redirect(action: 'index')
     }
 
 }

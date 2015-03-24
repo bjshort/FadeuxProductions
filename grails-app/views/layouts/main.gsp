@@ -28,7 +28,7 @@
             <g:layoutBody/>
         </div>
 
-        <div class="container">
+        <div class="fluid-container footer-container">
             <g:render template="/templates/layout/footer" />
         </div>
 
@@ -47,7 +47,7 @@
                     arrows: true,
                     infinite: true,
                     speed: 500,
-                    slidesToShow: 4,
+                    slidesToShow: 3,
                     slidesToScroll: 1,
                     autoplay: true,
                     centerMode: true,

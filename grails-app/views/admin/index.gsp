@@ -9,13 +9,10 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-4">
-                <div class="row">
-                    <div class="bubble sidebar">
-                        <h4>Other links...</h4>
-                        <g:link action="displayAddShow">Create Show</g:link>
-                    </div>
+                <div class="bubble sidebar">
+                    <h4>Other links...</h4>
+                    <g:link action="displayAddShow">Create Show</g:link>
                 </div>
-
             </div>
             <div class="col-xs-8">
                 <g:if test="${flash.message}">
@@ -49,6 +46,21 @@
                             </table>
                         </div>
 
+                    </div>
+                </div>
+                <div style="margin-top: 20px;" class="row">
+                    <div class="col-md-12">
+                        <div class="bubble">
+                            <h4>Edit content</h4>
+
+                            <g:form controller="admin" action="editContent" params="[contentTag: 'homepageDescription']">
+                                <div class="form-group">
+                                    <g:textField class="form-control" name="message" value="${fadeuxproductions.Content.findByKey('homepageDescription')?.message ?: ""}" />
+                                    <g:submitButton class="btn btn-default" name="submit" value="Save" />
+                                </div>
+
+                            </g:form>
+                        </div>
                     </div>
                 </div>
             </div>

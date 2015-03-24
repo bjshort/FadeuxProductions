@@ -19,13 +19,11 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-4">
-                <div class="row">
-                    <div class="bubble sidebar">
-                        <h4>More Info</h4>
-                        <p><span class="glyphicon glyphicon-map-marker"> </span> <a href="#">${show?.location}</a></p>
-                        <p><span class="glyphicon glyphicon-time"> </span> Tuesday 31st Aug, 7pm</p>
-                        <p><span class="glyphicon glyphicon-credit-card"> </span> <a href="#">Buy tickets</a></p>
-                    </div>
+                <div class="bubble sidebar">
+                    <h4>More Info</h4>
+                    <p><span class="glyphicon glyphicon-map-marker"> </span> <a href="#">${show?.location}</a></p>
+                    <p><span class="glyphicon glyphicon-time"> </span> Tuesday 31st Aug, 7pm</p>
+                    <p><span class="glyphicon glyphicon-credit-card"> </span> <a href="#">Buy tickets</a></p>
                 </div>
             </div>
             <div class="col-xs-8">
