@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title></title>
+    <title>About Us</title>
 </head>
 <body>
 <div id="container" class="container-fluid">

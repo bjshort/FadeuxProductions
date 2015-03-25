@@ -2,8 +2,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main"/>
-		<title>Welcome to Grails</title>
-
+		<title>Welcome to London's quirkiest independent theatre production company</title>
 	</head>
 	<body>
 

@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title></title>
+    <title>${show?.title}</title>
 
     %{--<link href="site-assets/site.css?v=4.0.6-1.0.4" rel="stylesheet" />--}%
     %{--<link href="dist/photoswipe.css?v=4.0.6-1.0.4" rel="stylesheet" />--}%

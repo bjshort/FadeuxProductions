@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title></title>
+    <title>Administration panel</title>
 </head>
 <body>
 <div id="container" class="container-fluid">
