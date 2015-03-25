@@ -42,4 +42,15 @@ class ShowService {
             show.save(failOnError: true)
         }
     }
+
+    def deleteShow(Long id){
+        def show = Show.findById(id)
+
+        if(show){
+            show.delete()
+            return "Show was successfully deleted."
+        }
+
+        null
+    }
 }

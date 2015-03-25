@@ -5,11 +5,9 @@
 
         <div class="slick-slider-container">
             <div class="slick-slider" >
-                <div><img width="260" src="http://lorempixel.com/336/406" /></div>
-                <div><img width="260" src="http://lorempixel.com/336/406/sport" /></div>
-                <div><img width="260" src="http://lorempixel.com/336/406/nature" /></div>
-                %{--<div><img width="260" src="http://lorempixel.com/336/406/business" /></div>--}%
-                %{--<div><img width="260" src="http://lorempixel.com/336/406/fashion" /></div>--}%
+                <g:each in="${shows}" var="show">
+                    <div><img width="260" src="${show?.getThumbnailUrl()}" /></div>
+                </g:each>
             </div>
         </div>
         <button class="btn btn-primary pull-right">See all...</button>

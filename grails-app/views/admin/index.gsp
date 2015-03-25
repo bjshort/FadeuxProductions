@@ -30,7 +30,7 @@
                             <h2>Shows</h2>
                             <table class="table table-striped">
                                 <thead>
-                                <th>Title</th><th>Created</th><th>Cover</th><th>Thumb</th><th></th>
+                                <th>Title</th><th>Created</th><th>Cover</th><th>Thumb</th><th></th><th></th>
                                 </thead>
                                 <tbody>
                                 <g:each in="${shows}" var="show">
@@ -40,6 +40,7 @@
                                         <td><span class="glyphicon glyphicon-${show?.coverImage ? 'ok' : 'remove'}"> </span></td>
                                         <td><span class="glyphicon glyphicon-${show?.thumbnail ? 'ok' : 'remove'}"> </span></td>
                                         <td><g:link action="displayEditShow" params="[id: show.id]">Edit</g:link></td>
+                                        <td><g:link action="deleteShow" params="[id: show.id]">Delete</g:link></td>
                                     </tr>
                                 </g:each>
                                 </tbody>

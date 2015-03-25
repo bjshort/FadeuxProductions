@@ -93,6 +93,18 @@ class AdminController {
         redirect(action: 'index')
     }
 
+    def deleteShow(Long id){
+        def response = showService.deleteShow(id)
+
+        if(response){
+            flash.message = response
+        } else {
+            flash.message = "Show could not be deleted."
+        }
+
+        redirect(action: 'index')
+    }
+
 }
 
 @Validateable
