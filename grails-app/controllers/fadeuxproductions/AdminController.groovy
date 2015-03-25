@@ -46,15 +46,20 @@ class AdminController {
 
     def changeCoverImage(Long showId){
         MultipartFile coverImage = params.coverImage
-        def image = ImageIO.read(coverImage.getInputStream())
-        def heightBoundary = (Long) (image.getWidth() * 0.61)
-        if(image.getWidth() < 1280){
-            flash.coverImageError = "The cover image must be more than 1280 pixels wide."
-        } else if(image.getHeight() > heightBoundary) {
-            flash.coverImageError = "Your image is too tall for it's width. Crop the height to $heightBoundary px or lower."
+
+        if(validateIsImage(coverImage)){
+            def image = ImageIO.read(coverImage.getInputStream())
+            def heightBoundary = (Long) (image.getWidth() * 0.61)
+            if(image.getWidth() < 1280){
+                flash.coverImageError = "The cover image must be more than 1280 pixels wide."
+            } else if(image.getHeight() > heightBoundary) {
+                flash.coverImageError = "Your image is too tall for it's width. Crop the height to $heightBoundary px or lower."
+            } else {
+                def response = assetService.addAsset(coverImage, showId, AssetType.COVER)
+                flash.coverImageError = response.error
+            }
         } else {
-            def response = assetService.addAsset(coverImage, showId, AssetType.COVER)
-            flash.coverImageError = response.error
+            flash.coverImageError = "File is not an image..."
         }
 
         redirect(action: 'displayEditShow', params: [id: showId])
@@ -62,13 +67,18 @@ class AdminController {
 
     def changeThumbnailImage(Long showId){
         MultipartFile thumbnailImage = params.thumbnailImage
-        def image = ImageIO.read(thumbnailImage.getInputStream())
-        if(image.getWidth() != 260 || image.getHeight() != 314){
-            flash.thumbnailImageError = "Thumnails must be 260 x 314 pixels - resize the image before uploading."
+        if(validateIsImage(thumbnailImage)){
+            def image = ImageIO.read(thumbnailImage.getInputStream())
+            if(image.getWidth() != 260 || image.getHeight() != 314){
+                flash.thumbnailImageError = "Thumbnails must be 260 x 314 pixels - resize the image before uploading."
+            } else {
+                def response = assetService.addAsset(thumbnailImage, showId, AssetType.THUMBNAIL)
+                flash.thumbnailImageError = response.error
+            }
         } else {
-            def response = assetService.addAsset(thumbnailImage, showId, AssetType.THUMBNAIL)
-            flash.thumbnailImageError = response.error
+            flash.thumbnailImageError = "File is not an image..."
         }
+
 
         redirect(action: 'displayEditShow', params: [id: showId])
     }
@@ -103,6 +113,15 @@ class AdminController {
         }
 
         redirect(action: 'index')
+    }
+
+    static validateIsImage(MultipartFile file){
+        def isImage = false
+
+        if(file.contentType.contains("image/")){
+            isImage = true
+        }
+        isImage
     }
 
 }
