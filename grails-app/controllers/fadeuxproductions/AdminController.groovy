@@ -46,9 +46,17 @@ class AdminController {
 
     def changeCoverImage(Long showId){
         MultipartFile coverImage = params.coverImage
-        def response = assetService.addAsset(coverImage, showId, AssetType.COVER)
+        def image = ImageIO.read(coverImage.getInputStream())
+        def heightBoundary = (Long) (image.getWidth() * 0.61)
+        if(image.getWidth() < 1280){
+            flash.coverImageError = "The cover image must be more than 1280 pixels wide."
+        } else if(image.getHeight() > heightBoundary) {
+            flash.coverImageError = "Your image is too tall for it's width. Crop the height to $heightBoundary px or lower."
+        } else {
+            def response = assetService.addAsset(coverImage, showId, AssetType.COVER)
+            flash.coverImageError = response.error
+        }
 
-        flash.coverImageError = response.error
         redirect(action: 'displayEditShow', params: [id: showId])
     }
 

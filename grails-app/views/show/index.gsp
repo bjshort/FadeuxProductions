@@ -30,7 +30,7 @@
                             <div class="row">
                                 <g:each in="${shows}" var="show">
                                     <div class="show col-xs-4">
-                                        <img src="${show?.thumbnail?.storedPath}" width="200"/>
+                                        <img src="${show?.getThumbnailUrl()}" width="200"/>
                                         <h4>
                                             <g:link controller="show" action="view" params="[id: show.id]" >
                                                 ${show.title}

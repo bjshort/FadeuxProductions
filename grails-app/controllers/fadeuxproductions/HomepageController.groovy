@@ -6,7 +6,7 @@ class HomepageController {
 
     @Secured(['permitAll'])
     def index() {
-        render view: 'index', model: [shows: Show.all,
+        render view: 'index', model: [shows: Show.findAllByCoverImageIsNotNull(),
                                       content: [title: Content?.findByKey('homepageTitle')?.message,
                                                 description: Content?.findByKey('homepageDescription')?.message,
                                                 showsTitle: Content?.findByKey('homepageShowsTitle')?.message,

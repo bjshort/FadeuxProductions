@@ -4,7 +4,7 @@ class ShowController {
 
     def index() {
         Random rand = new Random()
-        def shows = Show.findAllByCoverImageIsNotNullAndThumbnailIsNotNull()
+        def shows = Show.findAllByCoverImageIsNotNull()
         if(shows){
             [shows: shows, background: shows[rand.nextInt(shows.size())].coverImage.storedPath]
         } else {

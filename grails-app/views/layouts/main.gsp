@@ -39,7 +39,8 @@
                 $('.flexslider').flexslider({
                     animation: "fade",
                     slideshow: "true",
-                    slideshowSpeed: 4000
+                    slideshowSpeed: 4000,
+                    randomize: true
                 });
 
                 $('.slick-slider').slick({

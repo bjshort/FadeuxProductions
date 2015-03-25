@@ -20,4 +20,12 @@ class Show {
     static mapping = {
         autoTimestamp true
     }
+
+    def getThumbnailUrl(){
+        if(thumbnail){
+            thumbnail?.storedPath
+        } else {
+            "/assets/thumbnail-blank.jpg"
+        }
+    }
 }
