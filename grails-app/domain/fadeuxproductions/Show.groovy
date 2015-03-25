@@ -5,6 +5,7 @@ class Show {
     String title
     String location
     String description
+    String ticketURL
     Asset coverImage
     Asset thumbnail
     Date dateCreated
@@ -14,6 +15,7 @@ class Show {
     static constraints = {
         coverImage nullable: true
         thumbnail nullable: true
+        ticketURL nullable: true
         description maxSize: 10000
     }
 

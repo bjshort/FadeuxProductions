@@ -106,6 +106,11 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="ticketURL">Ticket URL</label>
+                                <input name="ticketURL" type="text" class="form-control" placeholder="Enter a ticket booking URL..." aria-describedby="basic-addon2" value="${command?.ticketURL}">
+                            </div>
+
+                            <div class="form-group">
                                 <button class="btn btn-default" type="submit">${command?.id ? "Update & continue" : "Create & continue"}</button>
                             </div>
 

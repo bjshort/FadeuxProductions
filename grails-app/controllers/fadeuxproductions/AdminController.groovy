@@ -132,6 +132,7 @@ class ShowCommand {
     String title
     String description
     String location
+    String ticketURL
 
     static constraints = {
         id nullable: true
@@ -141,10 +142,13 @@ class ShowCommand {
     }
 
     static ShowCommand buildFromShow(Show show) {
-        new ShowCommand(id: show.id, title: show.title, description: show.description, location: show.location)
+        new ShowCommand(id: show.id, title: show.title, description: show.description, location: show.location,
+                        ticketURL: show.ticketURL)
     }
 
     Show asShow() {
-        new Show(id: this.id, title: this.title, description: this.description, location: this.location)
+        new Show(id: this.id, title: this.title,
+                description: this.description, location: this.location,
+                ticketURL: this.ticketURL)
     }
 }

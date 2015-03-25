@@ -28,6 +28,7 @@
                     <div class="col-xs-12">
                         <div class="bubble">
                             <h2>Shows</h2>
+                            <p>Note: Shows will not appear on the front-end until a cover image has been added.</p>
                             <table class="table table-striped">
                                 <thead>
                                 <th>Title</th><th>Created</th><th>Cover</th><th>Thumb</th><th></th><th></th>
