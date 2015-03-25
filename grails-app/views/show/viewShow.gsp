@@ -23,7 +23,9 @@
                     <h4>More Info</h4>
                     <p><span class="glyphicon glyphicon-map-marker"> </span> <a target="_blank" href="https://www.google.co.uk/maps/search/${show?.location}">${show?.location}</a></p>
                     <p><span class="glyphicon glyphicon-time"> </span> Tuesday 31st Aug, 7pm</p>
-                    <p><span class="glyphicon glyphicon-credit-card"> </span> <a target="_blank" href="${show?.ticketURL?.contains("http") ? show?.ticketURL : "http://" + show?.ticketURL}">Buy tickets</a></p>
+                    <g:if test="${show?.ticketURL}">
+                        <p><span class="glyphicon glyphicon-credit-card"> </span> <a target="_blank" href="${show?.ticketURL?.contains("http") ? show?.ticketURL : "http://" + show?.ticketURL}">Buy tickets</a></p>
+                    </g:if>
                 </div>
             </div>
             <div class="col-xs-8">
