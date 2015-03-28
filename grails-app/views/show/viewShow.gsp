@@ -12,6 +12,7 @@
     <asset:javascript src="photoswipe.min.js" />
     <asset:javascript src="photoswipe-ui-default.min.js" />
     <asset:javascript src="masonry.pkgd.min.js" />
+    <asset:javascript src="imagesloaded.pkgd.min.js" />
 </head>
 
 <body>
@@ -20,7 +21,7 @@
         <div class="row">
             <div class="col-xs-4">
                 <div class="bubble sidebar">
-                    <h4>More Info</h4>
+                    <h3>More Info</h3>
                     <p><span class="glyphicon glyphicon-map-marker"> </span> <a target="_blank" href="https://www.google.co.uk/maps/search/${show?.location}">${show?.location}</a></p>
                     <p><span class="glyphicon glyphicon-time"> </span> Tuesday 31st Aug, 7pm</p>
                     <g:if test="${show?.ticketURL}">
@@ -30,13 +31,13 @@
             </div>
             <div class="col-xs-8">
                 <div class="bubble">
-                    <h3>${show.title}</h3>
+                    <h2>${show.title}</h2>
 
                     <p>${show.description}</p>
                 </div>
 
                 <div id="show-gallery" class="bubble">
-                    <h4>Gallery</h4>
+                    <h3>Gallery</h3>
                     <g:if test="${show.images.size() == 0}">
                         <p>There are no images in this gallery.</p>
                     </g:if>
