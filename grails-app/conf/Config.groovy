@@ -96,6 +96,10 @@ environments {
         aws.bucket = "fadeux-dev"
         grails.gsp.enable.reload=true
     }
+    awstest {
+        aws.bucket = "fadeux-test"
+        grails.gsp.enable.reload=true
+    }
     production {
         grails.logging.jul.usebridge = false
         // TODO: grails.serverURL = "http://www.changeme.com"

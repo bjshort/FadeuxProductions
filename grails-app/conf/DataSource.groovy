@@ -31,13 +31,13 @@ environments {
             password="postgres"
         }
     }
-    pgcloud {
+    awstest {
         dataSource {
             driverClassName = "org.postgresql.Driver"
-            dbCreate = "update"
-            url = "jdbc:postgresql://fadeux-dev.csinukzqg0p4.eu-west-1.rds.amazonaws.com:5432/fadeux-dev"
-            username="fadeux"
-            password="faddyfaddyoneone"
+            dbCreate = System.getProperty("DB_CREATE") ?: "create-drop"
+            url = "jdbc:postgresql://aah5f26m7tolny.csinukzqg0p4.eu-west-1.rds.amazonaws.com:5432/ebdb"
+            username = "fadeuxtest"
+            password = "MrBugginsworth"
         }
     }
     test {

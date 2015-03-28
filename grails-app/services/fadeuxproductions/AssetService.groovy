@@ -89,6 +89,12 @@ class AssetService {
     }
 
     private File multipartToFile(MultipartFile multipart) throws IllegalStateException, IOException{
+        def folder = new File( 'tmp' )
+
+        if( !folder.exists() ) {
+            folder.mkdirs()
+        }
+
         File convFile = new File("tmp/" + multipart.getOriginalFilename());
         multipart.transferTo(convFile);
         return convFile;
