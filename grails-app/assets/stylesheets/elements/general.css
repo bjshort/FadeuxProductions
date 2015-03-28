@@ -157,7 +157,8 @@ h3 {
     border-color: rgb(180, 47, 47);
 }
 .btn-primary:hover {
-    background-color: rgb(107, 75, 94);
+    background-color: rgb(0, 0, 0);
+    border-color: rgb(0, 0, 0);
 }
 
 .footer-container {
@@ -226,4 +227,9 @@ legend {
 #currentShows {
     background-color: #303030;
     color: #FFF;
+}
+
+.form-control {
+    border: 1px solid #C9C9C9;
+    border-radius: 0px;
 }

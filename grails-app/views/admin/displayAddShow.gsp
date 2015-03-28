@@ -10,8 +10,8 @@
         <div class="row">
             <div class="col-xs-4">
                 <div class="row">
-                    <div class="bubble sidebar">
-                        <g:if test="${command}">
+                    <g:if test="${command}">
+                        <div class="bubble sidebar">
                             <div>
                                 <h3>Cover image:</h3>
                                 <div id="coverImage">
@@ -69,8 +69,8 @@
                                     <g:submitButton class="btn btn-default" name="submitThumbnailImage" value="Upload" />
                                 </g:form>
                             </div>
-                        </g:if>
                     </div>
+                    </g:if>
                 </div>
             </div>
             <div class="col-xs-8">
@@ -91,38 +91,41 @@
                         </g:eachError>
                     </g:hasErrors>
 
-                    <div class="row">
-                        <h2>Create a show</h2>
+                    <h2>Create a show</h2>
 
-                        <g:form action="addShow" enctype="multipart/form-data">
-                            <div class="form-group">
-                                <label for="title">Title</label>
-                                <input name="title" type="text" class="form-control" placeholder="Title" aria-describedby="basic-addon2"  value="${command?.title}">
+                    <g:form action="addShow" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input name="title" type="text" class="form-control" placeholder="Title" aria-describedby="basic-addon2"  value="${command?.title}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea class="form-control" rows="15" name="description" placeholder="Description">${command?.description}</textarea>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="location">Location</label>
+                                    <input name="location" type="text" class="form-control" placeholder="Location" aria-describedby="basic-addon2" value="${command?.location}">
+                                </div>
                             </div>
-
-                            <div class="form-group">
-                                <label for="description">Description</label>
-                                <textarea class="form-control" rows="15" name="description" placeholder="Description">${command?.description}</textarea>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="ticketURL">Ticket URL</label>
+                                    <input name="ticketURL" type="text" class="form-control" placeholder="Enter a ticket booking URL..." aria-describedby="basic-addon2" value="${command?.ticketURL}">
+                                </div>
                             </div>
+                        </div>
 
-                            <div class="form-group">
-                                <label for="location">Location</label>
-                                <input name="location" type="text" class="form-control" placeholder="Location" aria-describedby="basic-addon2" value="${command?.location}">
-                            </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary" type="submit">${command?.id ? "Update & continue" : "Create & continue"}</button>
+                        </div>
 
-                            <div class="form-group">
-                                <label for="ticketURL">Ticket URL</label>
-                                <input name="ticketURL" type="text" class="form-control" placeholder="Enter a ticket booking URL..." aria-describedby="basic-addon2" value="${command?.ticketURL}">
-                            </div>
+                        <g:hiddenField name="id" value="${command?.id}" />
 
-                            <div class="form-group">
-                                <button class="btn btn-default" type="submit">${command?.id ? "Update & continue" : "Create & continue"}</button>
-                            </div>
-
-                            <g:hiddenField name="id" value="${command?.id}" />
-
-                        </g:form>
-                    </div>
+                    </g:form>
                 </div>
             </div>
         </div>
