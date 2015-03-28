@@ -210,3 +210,8 @@ legend {
 .form-control {
     font-size: 16px;
 }
+
+#whatWeDo {
+    background-color: grey;
+    text-align: center;
+}

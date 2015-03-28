@@ -10,6 +10,8 @@ class HomepageController {
                                       content: [title: Content?.findByKey('homepageTitle')?.message,
                                                 description: Content?.findByKey('homepageDescription')?.message,
                                                 showsTitle: Content?.findByKey('homepageShowsTitle')?.message,
-                                                showsDescription: Content?.findByKey('homepageShowsBody')?.message]]
+                                                showsDescription: Content?.findByKey('homepageShowsBody')?.message,
+                                                whatWeDoTitle: Content?.findByKey('homepageWhatWeDoTitle')?.message,
+                                                whatWeDoDescription: Content?.findByKey('homepageWhatWeDoDescription')?.message]]
     }
 }

@@ -83,6 +83,18 @@
                                                 </fieldset>
 
                                                 <fieldset>
+                                                    <legend>What We Do</legend>
+                                                    <div class="form-group">
+                                                        <label for="content.homepageWhatWeDoTitle">Title</label>
+                                                        <g:textField class="form-control" name="content.homepageWhatWeDoTitle" value="${fadeuxproductions.Content.findByKey('homepageWhatWeDoTitle')?.message ?: ""}" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="content.homepageWhatWeDoDescription">Company Intro</label>
+                                                        <g:textArea rows="10" class="form-control" name="content.homepageWhatWeDoDescription" value="${fadeuxproductions.Content.findByKey('homepageWhatWeDoDescription')?.message ?: ""}" />
+                                                    </div>
+                                                </fieldset>
+
+                                                <fieldset>
                                                     <legend>List of current shows</legend>
                                                     <div class="form-group">
                                                         <label for="content.homepageShowsTitle">Title</label>

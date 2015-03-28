@@ -11,6 +11,9 @@
                 <g:render template="/templates/homepage/carousel" model="[shows: shows]"/>
             </div>
         </div>
+        <div id="whatWeDo" class="section">
+            <g:render template="/templates/homepage/whatWeDo"/>
+        </div>
         <div class="section">
             <g:render template="/templates/homepage/currentShows" model="[shows: shows]"/>
         </div>
