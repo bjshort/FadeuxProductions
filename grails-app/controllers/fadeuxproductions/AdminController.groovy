@@ -85,11 +85,11 @@ class AdminController {
 
     def editContent(){
         if(!params.content){
-            flash.message = "No content was submitted, apparently..."
+            flash.error = "No content was submitted, apparently..."
             redirect(action: 'index')
             return
         } else if (!(params.content instanceof Map)) {
-            flash.message = "Content didn't convert to a Map.....tell Brendan"
+            flash.error = "Content didn't convert to a Map.....tell Brendan"
             redirect(action: 'index')
             return
         } else {
@@ -107,9 +107,9 @@ class AdminController {
         def response = showService.deleteShow(id)
 
         if(response){
-            flash.message = response
+            flash.error = response
         } else {
-            flash.message = "Show could not be deleted."
+            flash.error = "Show could not be deleted."
         }
 
         redirect(action: 'index')

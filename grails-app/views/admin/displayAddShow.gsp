@@ -80,6 +80,11 @@
                             <div class="alert alert-success" role="alert">${flash.message}</div>
                         </div>
                     </g:if>
+                    <g:if test="${flash.error}">
+                        <div class="row">
+                            <div class="alert alert-danger" role="alert">${flash.error}</div>
+                        </div>
+                    </g:if>
                     <g:hasErrors bean="${command}">
                         <g:eachError bean="${command}">
                             <p class="error">${it.code}</p>
