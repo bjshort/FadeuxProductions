@@ -14,7 +14,7 @@
         <div id="whatWeDo" class="section">
             <g:render template="/templates/homepage/whatWeDo"/>
         </div>
-        <div class="section">
+        <div id="currentShows" class="section">
             <g:render template="/templates/homepage/currentShows" model="[shows: shows]"/>
         </div>
 	</body>

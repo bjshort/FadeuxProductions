@@ -3,6 +3,7 @@
 <head>
     <meta name="layout" content="main"/>
     <title>Administration panel</title>
+    <asset:javascript src="ckeditor.js" />
 </head>
 <body>
 <div id="container" class="container-fluid">
@@ -78,7 +79,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="content.homepageDescription">Company Intro</label>
-                                                        <g:textArea rows="10" class="form-control" name="content.homepageDescription" value="${fadeuxproductions.Content.findByKey('homepageDescription')?.message ?: ""}" />
+                                                        <g:textArea rows="8" class="form-control" name="content.homepageDescription" value="${fadeuxproductions.Content.findByKey('homepageDescription')?.message ?: ""}" />
                                                     </div>
                                                 </fieldset>
 
@@ -90,7 +91,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="content.homepageWhatWeDoDescription">Company Intro</label>
-                                                        <g:textArea rows="10" class="form-control" name="content.homepageWhatWeDoDescription" value="${fadeuxproductions.Content.findByKey('homepageWhatWeDoDescription')?.message ?: ""}" />
+                                                        <g:textArea rows="12" class="form-control" name="content.homepageWhatWeDoDescription" value="${fadeuxproductions.Content.findByKey('homepageWhatWeDoDescription')?.message ?: ""}" />
                                                     </div>
                                                 </fieldset>
 
@@ -102,7 +103,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="content.homepageShowsBody">Body text</label>
-                                                        <g:textArea rows="10" class="form-control" name="content.homepageShowsBody" value="${fadeuxproductions.Content.findByKey('homepageShowsBody')?.message ?: ""}" />
+                                                        <g:textArea rows="8" class="form-control" name="content.homepageShowsBody" value="${fadeuxproductions.Content.findByKey('homepageShowsBody')?.message ?: ""}" />
                                                     </div>
                                                 </fieldset>
                                                 <g:submitButton class="btn btn-primary" name="submit" value="Save" />
@@ -118,7 +119,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="content.aboutUsDescription">Body text</label>
-                                                        <g:textArea rows="10" class="form-control" name="content.aboutUsDescription" value="${fadeuxproductions.Content.findByKey('aboutUsDescription')?.message ?: ""}" />
+                                                        <g:textArea rows="14" class="form-control" name="content.aboutUsDescription" value="${fadeuxproductions.Content.findByKey('aboutUsDescription')?.message ?: ""}" />
                                                     </div>
                                                 </fieldset>
                                                 <g:submitButton class="btn btn-primary" name="submit" value="Save" />
@@ -134,7 +135,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="content.contactUsDescription">Body text</label>
-                                                        <g:textArea rows="10" class="form-control" name="content.contactUsDescription" value="${fadeuxproductions.Content.findByKey('contactUsDescription')?.message ?: ""}" />
+                                                        <g:textArea rows="12" class="form-control" name="content.contactUsDescription" value="${fadeuxproductions.Content.findByKey('contactUsDescription')?.message ?: ""}" />
                                                     </div>
                                                 </fieldset>
                                                 <g:submitButton class="btn btn-primary" name="submit" value="Save" />
@@ -153,5 +154,13 @@
 
 
 </div>
+
+<script>
+    // Replace the <textarea id="editor1"> with a CKEditor
+    // instance, using default configuration.
+    CKEDITOR.replace( 'content.homepageWhatWeDoDescription' );
+    CKEDITOR.replace('content.aboutUsDescription');
+    CKEDITOR.replace('content.contactUsDescription');
+</script>
 </body>
 </html>

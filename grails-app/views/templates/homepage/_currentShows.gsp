@@ -1,4 +1,4 @@
-<div id="currentShows" class="container">
+<div class="container">
         <h2>${content?.showsTitle ?: "Our Productions..."}</h2>
         <p>${content?.showsDescription ?: "A proper section of text needs to be entered in the Admin panel."}</p>
 

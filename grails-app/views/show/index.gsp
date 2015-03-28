@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="sidebar bubble">
-                        <h2>Looking for something?</h2>
+                        <h3>Looking for something?</h3>
                         <g:form action="index">
                             <div class="form-group">
                                 <g:textField class="form-control" name="search" placeholder="Filter by title..." />

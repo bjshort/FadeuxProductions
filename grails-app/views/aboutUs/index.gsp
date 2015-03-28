@@ -19,7 +19,7 @@
                     <div class="col-xs-12">
                         <div class="bubble">
                             <h2>${title ?: "About Us"}</h2>
-                            <p>${description ?: "About Us goes here"}</p>
+                            <p>${raw(description) ?: "About Us goes here"}</p>
                         </div>
 
                     </div>
