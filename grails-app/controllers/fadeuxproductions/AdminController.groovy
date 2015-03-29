@@ -137,6 +137,7 @@ class ShowCommand {
     static constraints = {
         id nullable: true
         title blank: false
+        ticketURL nullable: true
         description blank: false
         location blank: false
     }

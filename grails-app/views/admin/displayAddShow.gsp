@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-xs-4">
                 <div class="row">
-                    <g:if test="${command}">
+                    <g:if test="${show}">
                         <div class="bubble sidebar">
                             <div>
                                 <h3>Cover image:</h3>
