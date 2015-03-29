@@ -21,6 +21,7 @@ class Show {
 
     static mapping = {
         autoTimestamp true
+        images cascade: 'all-delete-orphan'
     }
 
     def getThumbnailUrl(){

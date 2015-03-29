@@ -112,7 +112,7 @@ class AssetService {
 
     def deleteAsset(id){
         def asset = Asset.findById(id)
-        deleteAssetFromS3(asset)
+//        deleteAssetFromS3(asset)
         asset.show = null
         asset.delete()
     }

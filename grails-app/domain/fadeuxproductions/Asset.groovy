@@ -17,4 +17,10 @@ class Asset {
     static mapping = {
         autoTimestamp true
     }
+
+    def assetService
+
+    def beforeDelete = {
+        assetService.deleteAssetFromS3(this)
+    }
 }
