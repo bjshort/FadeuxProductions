@@ -7,8 +7,8 @@ class UrlMappings {
             }
         }
 
-        "/our-productions"(controller: 'show', action: 'index')
-        "/production/$id?"(controller: 'show', action: 'view')
+        "/shows"(controller: 'show', action: 'index')
+        "/show/$id?"(controller: 'show', action: 'view')
 
         "/"(controller: 'homepage', action: 'index')
         "/status"(view:"/status/index")

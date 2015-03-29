@@ -28,7 +28,11 @@
                         <h1>Our productions</h1>
                         <div id="shows-gallery">
                             <div class="row">
-                                <g:each in="${shows}" var="show">
+                                <g:each in="${shows}" var="show" status="i">
+                                    <g:if test="${(i > 0) && ((i % 3) == 0)}">
+                                        </div>
+                                        <div class="row">
+                                    </g:if>
                                     <div class="show col-xs-4">
                                         <img src="${show?.getThumbnailUrl()}" width="200"/>
                                         <h4>
