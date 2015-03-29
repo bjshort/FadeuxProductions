@@ -4,3 +4,8 @@
     border-radius: 0px;
     margin-right: 20px;
 }
+.sidebar ul {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+}

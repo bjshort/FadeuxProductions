@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-xs-4">
                 <div class="bubble sidebar">
-                    <h4>Other links...</h4>
+                    <h3>Other links...</h3>
                     <g:link action="displayAddShow">Create Show</g:link>
                 </div>
             </div>

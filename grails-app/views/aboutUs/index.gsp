@@ -10,8 +10,13 @@
         <div class="row">
             <div class="col-xs-4">
                 <div class="bubble sidebar">
-                    <h4>Other links...</h4>
-                    <g:link action="displayAddShow">Create Show</g:link>
+                    <h3>Other links...</h3>
+                    <ul>
+                        <li><g:link controller="contactUs">Get in touch</g:link></li>
+                        <li><g:link controller="show">View our shows</g:link></li>
+                    </ul>
+
+
                 </div>
             </div>
             <div class="col-xs-8">
@@ -31,5 +36,12 @@
 
 
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        var url = '${background}';
+        $('#container').css('background-image', 'url("' + url + '")');
+    });
+</script>
 </body>
 </html>
