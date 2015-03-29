@@ -14,7 +14,7 @@
                         <div class="bubble sidebar">
                             <div>
                                 <h3>Cover image:</h3>
-                                <div id="coverImage">
+                                <div id="coverImage" class="uploadedImage">
                                     <g:if test="${show?.coverImage}">
                                         <img src="${show?.coverImage?.storedPath}" width="300" />
                                     </g:if>
@@ -27,23 +27,31 @@
                                         <div class="alert alert-danger" role="alert">${flash.coverImageError}</div>
                                     </g:if>
 
-                                    <div class="input-group">
-                                        <span class="input-group-btn">
-                                            <span class="btn btn-primary btn-file">
-                                                Browse&hellip; <input type="file" name="coverImage">
-                                            </span>
-                                            <g:hiddenField name="showId" value="${command?.id}" />
-                                        </span>
-                                        <input type="text" class="form-control" value="${show?.coverImage?.fileName}" readonly>
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="input-group">
+                                                <span class="input-group-btn">
+                                                    <span class="btn btn-primary btn-file">
+                                                        <span class="glyphicon glyphicon-folder-open"> </span> <input type="file" name="coverImage">
+                                                    </span>
+                                                    <g:hiddenField name="showId" value="${command?.id}" />
+                                                </span>
+                                                <input type="text" class="form-control" value="${show?.coverImage?.fileName}" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <g:submitButton class="btn btn-primary pull-right" name="submitCoverImage" value="Upload" />
+                                        </div>
                                     </div>
 
-                                    <g:submitButton class="btn btn-default" name="submitCoverImage" value="Upload" />
+
+
                                 </g:form>
                             </div>
-
-                            <div>
+                            <hr />
+                            <div style="margin-top: 20px;">
                                 <h3>Thumbnail image:</h3>
-                                <div id="thumbnailImage">
+                                <div id="thumbnailImage" class="uploadedImage">
                                     <g:if test="${show?.thumbnail}">
                                         <img src="${show.thumbnail.storedPath}" width="300" />
                                     </g:if>
@@ -56,17 +64,24 @@
                                         <div class="alert alert-danger" role="alert">${flash.thumbnailImageError}</div>
                                     </g:if>
 
-                                    <div class="input-group">
-                                        <span class="input-group-btn">
-                                            <span class="btn btn-primary btn-file">
-                                                Browse&hellip; <input type="file" name="thumbnailImage">
-                                            </span>
-                                            <g:hiddenField name="showId" value="${command?.id}" />
-                                        </span>
-                                        <input type="text" class="form-control" value="${show?.thumbnail?.fileName}" readonly>
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="input-group">
+                                                <span class="input-group-btn">
+                                                    <span class="btn btn-primary btn-file">
+                                                        <span class="glyphicon glyphicon-folder-open"> </span> <input type="file" name="thumbnailImage">
+                                                    </span>
+                                                    <g:hiddenField name="showId" value="${command?.id}" />
+                                                </span>
+                                                <input type="text" class="form-control" value="${show?.thumbnail?.fileName}" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <g:submitButton class="btn btn-primary pull-right" name="submitThumbnailImage" value="Upload" />
+                                        </div>
                                     </div>
 
-                                    <g:submitButton class="btn btn-default" name="submitThumbnailImage" value="Upload" />
+
                                 </g:form>
                             </div>
                     </div>
