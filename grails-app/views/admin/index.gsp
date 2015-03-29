@@ -95,17 +95,7 @@
                                                     </div>
                                                 </fieldset>
 
-                                                <fieldset>
-                                                    <legend>List of current shows</legend>
-                                                    <div class="form-group">
-                                                        <label for="content.homepageShowsTitle">Title</label>
-                                                        <g:textField class="form-control" name="content.homepageShowsTitle" value="${fadeuxproductions.Content.findByKey('homepageShowsTitle')?.message ?: ""}" />
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="content.homepageShowsBody">Body text</label>
-                                                        <g:textArea rows="8" class="form-control" name="content.homepageShowsBody" value="${fadeuxproductions.Content.findByKey('homepageShowsBody')?.message ?: ""}" />
-                                                    </div>
-                                                </fieldset>
+                     
                                                 <g:submitButton class="btn btn-primary" name="submit" value="Save" />
                                             </g:form>
                                         </div>
