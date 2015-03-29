@@ -251,3 +251,14 @@ legend {
 .uploadedImage p{
     padding: 2px;
 }
+
+#login .inner, #login .inner .fheader {
+    border: none !important;
+    background-color: #4D4B4B !important;
+    color: #FFF !important;
+}
+
+#login #submit {
+    background-color: rgb(180, 47, 47);
+    border: none;
+}
