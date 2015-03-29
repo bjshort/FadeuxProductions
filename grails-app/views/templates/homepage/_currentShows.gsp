@@ -14,7 +14,7 @@
         <div class="shows-container">
             <div class="row">
                 <g:if test="${shows}">
-                    <g:each in="${shows?.size() > 2 ? shows[0..1] : shows[0]}" var="show">
+                    <g:each in="${shows?.size() > 1 ? shows[0..1] : shows[0]}" var="show">
                         <div class="show col-md-6">
                             <div class="row">
                                 <div class="col-sm-6">
