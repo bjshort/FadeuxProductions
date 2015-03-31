@@ -3,8 +3,16 @@
 <head>
     <meta name="layout" content="main"/>
     <title>Add a new show</title>
+    <asset:javascript src="tinymce.min.js" />
 </head>
 <body>
+<script type="text/javascript">
+    tinymce.init({
+        selector: "textarea",
+        menubar : false
+    });
+</script>
+
 <div id="container" class="container-fluid">
     <div class="container">
         <div class="row">
