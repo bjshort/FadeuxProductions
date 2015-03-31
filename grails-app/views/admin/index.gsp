@@ -95,7 +95,7 @@
                                                     </div>
                                                 </fieldset>
 
-                     
+
                                                 <g:submitButton class="btn btn-primary" name="submit" value="Save" />
                                             </g:form>
                                         </div>
