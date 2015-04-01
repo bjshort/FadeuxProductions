@@ -4,7 +4,17 @@ class ShowController {
 
     def index() {
         Random rand = new Random()
-        def shows = Show.findAllByCoverImageIsNotNull([sort: 'dateCreated', order: 'desc'])
+        def shows = Show.createCriteria().list {
+            if(params.title){
+                ilike("title", "%" + (String) params.title + "%")
+            }
+
+            and {
+                isNotNull("coverImage")
+                order("dateCreated", "desc")
+            }
+
+        }
         if(shows){
             [shows: shows, background: shows[rand.nextInt(shows.size())].coverImage.storedPath]
         } else {

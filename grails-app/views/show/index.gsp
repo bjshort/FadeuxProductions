@@ -12,12 +12,12 @@
                 <div class="col-sm-4">
                     <div class="sidebar bubble">
                         <h3>Looking for something?</h3>
-                        <g:form action="index">
+                        <g:form controller="show" action="index" method="GET">
                             <div class="form-group">
-                                <g:textField class="form-control" name="search" placeholder="Filter by title..." />
+                                <g:textField class="form-control" name="title" placeholder="Filter by title..." value="${params.title ? params.title : ""}" />
                             </div>
                             <div class="form-group">
-                                <g:submitButton class="btn btn-primary" name="submit" value="Filter" />
+                                <g:submitButton class="btn btn-primary" name="submit" value="Filter"  />
                             </div>
                         </g:form>
                     </div>
