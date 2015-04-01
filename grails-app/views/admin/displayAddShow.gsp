@@ -61,7 +61,7 @@
                                 <h3>Thumbnail image:</h3>
                                 <div id="thumbnailImage" class="uploadedImage">
                                     <g:if test="${show?.thumbnail}">
-                                        <img src="${show.thumbnail.storedPath}" width="300" />
+                                        <img src="${show.thumbnail.storedPath}" width="150" />
                                     </g:if>
                                     <g:else>
                                         <p>You have not uploaded a thumbnail for this show.</p>
