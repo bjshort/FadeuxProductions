@@ -83,6 +83,24 @@ class AdminController {
         redirect(action: 'displayEditShow', params: [id: showId])
     }
 
+    def addImageToGallery(Long showId){
+        MultipartFile thumbnailImage = params.image
+        if(validateIsImage(thumbnailImage)){
+            def image = ImageIO.read(thumbnailImage.getInputStream())
+            if(image.getWidth() < 250 || image.getHeight() < 250){
+                flash.imageError = "Image dimensions must be larger than 250px."
+            } else {
+                def response = assetService.addAsset(thumbnailImage, showId, AssetType.SUPPLEMENT)
+                flash.imageError = response.error
+            }
+        } else {
+            flash.imageError = "File is not an image..."
+        }
+
+
+        redirect(action: 'displayEditShow', params: [id: showId])
+    }
+
     def editContent(){
         if(!params.content){
             flash.error = "No content was submitted, apparently..."

@@ -4,6 +4,8 @@
     <meta name="layout" content="main"/>
     <title>Add a new show</title>
     <asset:javascript src="tinymce.min.js" />
+    <asset:javascript src="masonry.pkgd.min.js" />
+    <asset:javascript src="imagesloaded.pkgd.min.js" />
 </head>
 <body>
 <script type="text/javascript">
@@ -42,7 +44,7 @@
                                                     <span class="btn btn-primary btn-file">
                                                         <span class="glyphicon glyphicon-folder-open"> </span> <input type="file" name="coverImage">
                                                     </span>
-                                                    <g:hiddenField name="showId" value="${command?.id}" />
+                                                    <g:hiddenField name="showId" value="${show?.id}" />
                                                 </span>
                                                 <input type="text" class="form-control" value="${show?.coverImage?.fileName}" readonly>
                                             </div>
@@ -79,7 +81,7 @@
                                                     <span class="btn btn-primary btn-file">
                                                         <span class="glyphicon glyphicon-folder-open"> </span> <input type="file" name="thumbnailImage">
                                                     </span>
-                                                    <g:hiddenField name="showId" value="${command?.id}" />
+                                                    <g:hiddenField name="showId" value="${show?.id}" />
                                                 </span>
                                                 <input type="text" class="form-control" value="${show?.thumbnail?.fileName}" readonly>
                                             </div>
@@ -98,6 +100,10 @@
             </div>
             <div class="col-xs-8">
                 <div class="bubble">
+                    <g:if test="${flash.imageError}">
+                        <div class="alert alert-danger" role="alert">${flash.imageError}</div>
+                    </g:if>
+
                     <g:if test="${flash.message}">
                         <div class="row">
                             <div class="alert alert-success" role="alert">${flash.message}</div>
@@ -150,7 +156,14 @@
 
                     </g:form>
                 </div>
+
+                <g:if test="${show}">
+                    <g:render template="../templates/show.gallery/gallery" model="[show: show, form: true]" />
+                </g:if>
             </div>
+
+
+
         </div>
     </div>
 </div>

@@ -36,45 +36,13 @@
                     <p>${show.description}</p>
                 </div>
 
-                <div id="show-gallery" class="bubble">
-                    <h3>Gallery</h3>
-                    <g:if test="${show.images.size() == 0}">
-                        <p>There are no images in this gallery.</p>
-                    </g:if>
-                    <g:else>
-                        <div id="gallery" class="gallery">
-                            <g:each in="${show.images}" var="image">
-                                <div class="gallery-item">
-                                    <a href="${image.storedPath}" data-size="1600x1600" data-med="${image.storedPath}"  data-med-size="1024x1024" >
-                                        <img style="max-height: 200px;" src="${image.storedPath}" alt="" />
-                                    </a>
-                                </div>
-                            </g:each>
-
-                        </div>
-                    </g:else>
-                </div>
+               <g:render template="../templates/show.gallery/gallery" model="[show: show]" />
             </div>
         </div>
     </div>
 </div>
 
-<script type="text/javascript">
-    $(document).ready(function(){
-        var url = '${show.coverImage.storedPath}';
-        $('#container').css('background-image', 'url("' + url + '")');
 
-        var $container = $('#gallery');
-
-        $container.imagesLoaded( function() {
-            // initialize
-            $container.masonry({
-                columnWidth: 60,
-                itemSelector: '.gallery-item'
-            });
-        });
-    });
-</script>
 
 <g:render template="../templates/show.gallery/galleryJS" model="[galleryClass: '.gallery']" />
 
