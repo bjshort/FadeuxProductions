@@ -1,6 +1,8 @@
 package fadeuxproductions
 
+import grails.util.GrailsUtil
 import grails.validation.Validateable
+import org.codehaus.groovy.grails.commons.GrailsStringUtils
 import org.springframework.web.multipart.MultipartFile
 import com.amazonaws.services.s3.model.*
 
@@ -154,10 +156,24 @@ class ShowCommand {
 
     static constraints = {
         id nullable: true
-        title blank: false
+        title nullable: true, validator: { val, obj ->
+            if (GrailsStringUtils.isBlank(val)) {
+                return "Title cannot be blank."
+            }
+        }
+
         ticketURL nullable: true
-        description blank: false
-        location blank: false
+        description nullable: true, validator: { val, obj ->
+            if (GrailsStringUtils.isBlank(val)) {
+                return "Description cannot be blank."
+            }
+        }
+
+        location nullable: true, validator: { val, obj ->
+            if (GrailsStringUtils.isBlank(val)) {
+                return "Location cannot be blank."
+            }
+        }
     }
 
     static ShowCommand buildFromShow(Show show) {
@@ -170,4 +186,6 @@ class ShowCommand {
                 description: this.description, location: this.location,
                 ticketURL: this.ticketURL)
     }
+
+
 }

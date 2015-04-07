@@ -23,8 +23,12 @@ class ShowController {
 
     }
 
-    def view(Long id){
+    def view(Long id, String title){
         def show = Show.findById(id)
+        if(!title){
+            redirect(action: 'view', params: [id: id, title: show.title.asFriendlyUrl()])
+            return
+        }
 
         if(!show){
             render 404

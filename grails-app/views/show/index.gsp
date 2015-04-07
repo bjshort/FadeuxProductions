@@ -36,7 +36,7 @@
                                     <div class="show col-xs-4">
                                         <img src="${show?.getThumbnailUrl()}" width="200"/>
                                         <h4>
-                                            <g:link controller="show" action="view" params="[id: show.id]" >
+                                            <g:link controller="show" action="view" params="[id: show.id, title: show?.title?.asFriendlyUrl()]" >
                                                 ${show.title}
                                             </g:link>
                                         </h4>

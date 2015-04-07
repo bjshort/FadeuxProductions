@@ -116,7 +116,7 @@
                     </g:if>
                     <g:hasErrors bean="${command}">
                         <g:eachError bean="${command}">
-                            <p class="error">${it.code}</p>
+                            <div class="alert alert-danger" role="alert">${it.code}</div>
                         </g:eachError>
                     </g:hasErrors>
 
@@ -124,20 +124,20 @@
 
                     <g:form action="addShow" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label for="title">Title</label>
-                            <input name="title" type="text" class="form-control" placeholder="Title" aria-describedby="basic-addon2"  value="${command?.title}">
+                            <label for="title">Title *</label>
+                            <input name="title" type="text" class="form-control" placeholder="Title" aria-describedby="basic-addon2"  value="${command?.title}" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="description">Description</label>
+                            <label for="description">Description *</label>
                             <textarea class="form-control" rows="15" name="description" placeholder="Description">${command?.description}</textarea>
                         </div>
 
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="location">Location</label>
-                                    <input name="location" type="text" class="form-control" placeholder="Location" aria-describedby="basic-addon2" value="${command?.location}">
+                                    <label for="location">Location *</label>
+                                    <input name="location" type="text" class="form-control" placeholder="Location" aria-describedby="basic-addon2" value="${command?.location}" required>
                                 </div>
                             </div>
                             <div class="col-md-6">

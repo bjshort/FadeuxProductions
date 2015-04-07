@@ -11,7 +11,7 @@
                                     <img width="100%" src="${show?.getThumbnailUrl()}" />
                                 </div>
                                 <div class="col-sm-6">
-                                    <h4><g:link controller="show" action="view" id="${show.id}">${show?.title}</g:link> </h4>
+                                    <h4><g:link controller="show" action="view" params="[id: show.id, title: show?.title?.asFriendlyUrl()]">${show?.title}</g:link> </h4>
                                     <p>${show?.description?.length() > 250 ? show?.description[0..250] : show?.description[0..show?.description?.length()-1]}...</p>
                                 </div>
                             </div>

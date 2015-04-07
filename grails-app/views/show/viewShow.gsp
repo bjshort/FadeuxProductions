@@ -33,7 +33,7 @@
                 <div class="bubble">
                     <h2>${show.title}</h2>
 
-                    <p>${show.description}</p>
+                    <p>${raw(show.description)}</p>
                 </div>
 
                <g:render template="../templates/show.gallery/gallery" model="[show: show]" />

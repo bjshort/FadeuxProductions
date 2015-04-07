@@ -150,3 +150,6 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 grails.plugin.awssdk.accessKey = "AKIAIAAVB6SJYZB6RETA"
 grails.plugin.awssdk.secretKey = "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"
 grails.plugin.awssdk.region = 'eu-west-1'
+
+
+grails.plugin.springsecurity.logout.postOnly = false

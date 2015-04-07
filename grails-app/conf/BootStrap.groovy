@@ -14,7 +14,7 @@ class BootStrap {
     def makeUsersAndRoles() {
         def adminRole = Role.findByAuthority('ROLE_ADMIN') ?: new Role(authority: 'ROLE_ADMIN').save(failOnError: true)
 
-        makeUserWithPass("admin", "password", adminRole)
+        makeUserWithPass("Curran", "3xtremelySafe", adminRole)
     }
 
     def makeUserWithPass(String username, String password, Role userRole) {

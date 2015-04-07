@@ -76,6 +76,9 @@ grails.project.dependency.resolution = {
 
         compile ":aws-sdk:1.9.22"
 
+        //SEO Friendly URLs
+        compile ":seo-friendly-urls:1.0.1"
+
         // Uncomment these to enable additional asset-pipeline capabilities
         //compile ":sass-asset-pipeline:1.9.0"
         //compile ":less-asset-pipeline:1.10.0"

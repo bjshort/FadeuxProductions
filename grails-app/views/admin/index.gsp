@@ -19,7 +19,12 @@
             <div class="col-xs-4">
                 <div class="bubble sidebar">
                     <h3>Other links...</h3>
-                    <g:link action="displayAddShow">Create Show</g:link>
+                    <ul>
+                        <li><g:link action="displayAddShow">Create Show</g:link></li>
+                        <li><g:link controller="logout" action="index">Logout</g:link></li>
+                    </ul>
+
+
                 </div>
             </div>
             <div class="col-xs-8">
