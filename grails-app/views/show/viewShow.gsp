@@ -7,12 +7,11 @@
     %{--<link href="site-assets/site.css?v=4.0.6-1.0.4" rel="stylesheet" />--}%
     %{--<link href="dist/photoswipe.css?v=4.0.6-1.0.4" rel="stylesheet" />--}%
     %{--<link href="dist/default-skin/default-skin.css?v=4.0.6-1.0.4" rel="stylesheet" />--}%
-    <asset:stylesheet src="photoswipe.css" />
     <asset:stylesheet src="default-skin/default-skin.css" />
-    <asset:javascript src="photoswipe.min.js" />
-    <asset:javascript src="photoswipe-ui-default.min.js" />
     <asset:javascript src="masonry.pkgd.min.js" />
     <asset:javascript src="imagesloaded.pkgd.min.js" />
+    <asset:javascript src="jquery.fancybox.pack.js" />
+    <asset:stylesheet src="jquery.fancybox.css" />
 </head>
 
 <body>
@@ -44,7 +43,7 @@
 
 
 
-<g:render template="../templates/show.gallery/galleryJS" model="[galleryClass: '.gallery']" />
+%{--<g:render template="../templates/show.gallery/galleryJS" model="[galleryClass: '.gallery']" />--}%
 
 </body>
 </html>

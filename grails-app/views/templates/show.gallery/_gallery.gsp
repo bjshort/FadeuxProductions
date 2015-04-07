@@ -7,7 +7,7 @@
         <div id="gallery" class="gallery">
             <g:each in="${show.images}" var="image">
                 <div class="gallery-item">
-                    <a href="${image.storedPath}" data-size="1600x1600" data-med="${image.storedPath}"  data-med-size="1024x1024" >
+                    <a href="${image.storedPath}" >
                         <img style="max-height: 200px;" src="${image.storedPath}" alt="" />
                     </a>
                 </div>
@@ -56,6 +56,27 @@
                 columnWidth: 60,
                 itemSelector: '.gallery-item'
             });
+        });
+
+
+        /* This is basic - uses default settings */
+
+//        $("a#single_image").fancybox();
+
+        /* Using custom settings */
+
+//        $("a#inline").fancybox({
+//            'hideOnContentClick': true
+//        });
+
+        /* Apply fancybox to multiple items */
+
+        $(".gallery-item a").fancybox({
+            'transitionIn'	:	'elastic',
+            'transitionOut'	:	'elastic',
+            'speedIn'		:	600,
+            'speedOut'		:	200,
+            'overlayShow'	:	false
         });
     });
 </script>
