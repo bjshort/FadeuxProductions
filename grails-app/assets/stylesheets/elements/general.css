@@ -6,10 +6,15 @@
     max-height: 60px;
     margin-bottom: 0;
 }
-.navbar-nav {
+.navbar-nav, .navbar-brand {
     font-family: Alex-Brush, FrenchCanon, 'Yellowtail', cursive;
     font-size: 26px;
     display: block;
+}
+
+.navbar-brand{
+    font-weight: bold;
+    font-size: 28px;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
     background: none;
@@ -279,4 +284,9 @@ legend {
 
 #gallery .gallery-item {
     margin-bottom: 10px;
+}
+
+.show .show-thumb {
+    background-color: #000;
+    text-align: center;
 }

@@ -1,6 +1,6 @@
 <div class="flexslider">
     <div class="container">
-        <div id="intro">
+        <div id="intro" class="hidden-xs">
             <h1>${content?.title ?: "You've made it to Fadeux..."}</h1>
             <g:if test="${content.description}">
                 <p>${content.description}</p>

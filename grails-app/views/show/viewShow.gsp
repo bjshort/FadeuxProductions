@@ -18,7 +18,7 @@
 <div id="container" class="container-fluid">
     <div class="container">
         <div class="row">
-            <div class="col-xs-4">
+            <div class="col-sm-4">
                 <div class="bubble sidebar">
                     <h3>More Info</h3>
                     <p><span class="glyphicon glyphicon-map-marker"> </span> <a target="_blank" href="https://www.google.co.uk/maps/search/${show?.location}">${show?.location}</a></p>
@@ -28,7 +28,7 @@
                     </g:if>
                 </div>
             </div>
-            <div class="col-xs-8">
+            <div class="col-sm-8">
                 <div class="bubble">
                     <h2>${show.title}</h2>
 

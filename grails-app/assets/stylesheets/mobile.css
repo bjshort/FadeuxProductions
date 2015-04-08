@@ -1,3 +1,33 @@
+@media screen and (max-width: 770px) {
+    ul.navbar-nav {
+        background-color: white;
+    }
+
+    #currentShows .show {
+        padding-bottom: 25px;
+        padding-top: 40px;
+        border-bottom: 1px solid grey;
+    }
+
+    #currentShows .show:first-child {
+        padding-top: 5px;
+    }
+
+    #currentShows .show:last-child {
+        border-bottom: none;
+    }
+
+    #shows-gallery .show h4 {
+        text-align: center;
+    }
+
+    .sidebar {
+        margin-top: 0 !important;
+        margin-right: 0 !important;
+        margin-bottom: 25px !important;
+    }
+}
+
 /* Styles for mobile devices */
 
 @media screen and (max-width: 480px) {
@@ -90,5 +120,9 @@
     .navbar {
         /*min-height: 70px !important;*/
         margin-bottom: 0;
+    }
+
+    ul.navbar-nav {
+        background-color: white;
     }
 }

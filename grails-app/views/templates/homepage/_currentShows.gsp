@@ -8,7 +8,9 @@
                         <div class="show col-md-6">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <img width="100%" src="${show?.getThumbnailUrl()}" />
+                                    <g:link controller="show" action="view" params="[id: show.id, title: show?.title?.asFriendlyUrl()]">
+                                        <img width="100%" src="${show?.getThumbnailUrl()}" />
+                                    </g:link>
                                 </div>
                                 <div class="col-sm-6">
                                     <h4><g:link controller="show" action="view" params="[id: show.id, title: show?.title?.asFriendlyUrl()]">${show?.title}</g:link> </h4>

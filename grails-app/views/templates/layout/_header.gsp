@@ -7,7 +7,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"><asset:image class="hidden-xs" src="FaDlowres.png" width="240" /> <span class="visible-xs-inline">Folie a deux</span> </a>
+            <g:link controller="homepage" class="navbar-brand" href="#"><asset:image class="hidden-xs" src="FaDlowres.png" width="240" /> <span class="visible-xs-inline">Folie a deux</span> </g:link>
         </div>
 
         <div class="collapse navbar-collapse" id="navbar">

@@ -6,7 +6,6 @@
 </head>
 <body>
 <div id="container" class="container-fluid">
-    <div class="row">
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
@@ -33,8 +32,12 @@
                                         </div>
                                         <div class="row">
                                     </g:if>
-                                    <div class="show col-xs-4">
-                                        <img src="${show?.getThumbnailUrl()}" width="200"/>
+                                    <div class="show col-md-4">
+                                        <g:link controller="show" action="view" params="[id: show.id, title: show?.title?.asFriendlyUrl()]" >
+                                            <div class="show-thumb">
+                                                <img src="${show?.getThumbnailUrl()}" width="220px"/>
+                                            </div>
+                                        </g:link>
                                         <h4>
                                             <g:link controller="show" action="view" params="[id: show.id, title: show?.title?.asFriendlyUrl()]" >
                                                 ${show.title}
@@ -51,7 +54,6 @@
             </div>
 
         </div>
-    </div>
 
 </div>
 
