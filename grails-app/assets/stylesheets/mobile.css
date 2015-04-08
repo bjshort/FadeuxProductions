@@ -1,3 +1,13 @@
+@media screen and (max-width: 1300px) {
+    .flexslider .slides img {
+        max-height: 850px !important;
+    }
+
+    #container {
+        min-height: 700px !important;
+    }
+}
+
 @media screen and (max-width: 770px) {
     ul.navbar-nav {
         background-color: white;

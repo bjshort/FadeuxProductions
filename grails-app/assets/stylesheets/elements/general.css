@@ -40,7 +40,7 @@
     background-color: #000;
 }
 .flexslider .slides img {
-    max-height: 850px;
+    max-height: 1100px;
 }
 .flexslider .container {
     position: relative;
@@ -112,8 +112,9 @@ ul.show-slider li:nth-child(2) {
 
 #container {
     padding: 35px 0;
-    min-height: 700px;
+    min-height: 910px ;
     background-color: #4D4B4B;
+    background-size: cover;
 }
 
 h1, h2, h3 {
