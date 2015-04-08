@@ -7,6 +7,7 @@ import org.springframework.web.multipart.MultipartFile
 import com.amazonaws.services.s3.model.*
 
 import javax.imageio.ImageIO
+import java.text.ParseException
 import java.text.SimpleDateFormat
 
 class AdminController {
@@ -176,7 +177,15 @@ class ShowCommand {
                 return "Location cannot be blank."
             }
         }
-        date nullable: true
+        date nullable: true, validator: { val, obj ->
+            try {
+                def test = Date.parse('d/M/yy', val)
+            } catch (ParseException e){
+                return "The date you entered could not be parsed."
+            }
+
+            true
+        }
     }
 
     static ShowCommand buildFromShow(Show show) {

@@ -21,7 +21,6 @@ class ShowService {
         show.title = title
         show.description = description
         show.location = location
-        println("DATe String: " + date)
         show.showDate = Date.parse('d/M/yy', date)
         show.save(failOnError: true)
     }

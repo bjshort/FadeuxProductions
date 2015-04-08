@@ -158,7 +158,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="date">Date</label>
-                                            <input id="date" name="date" type="text" class="form-control" placeholder="Select a date..." aria-describedby="basic-addon2" value="${show?.getShowDisplayDate() ?: command?.date}">
+                                            <input id="date" name="date" type="text" class="form-control" placeholder="Select a date..." aria-describedby="basic-addon2" value="${show?.showDate ? show?.showDate?.format('d/M/yy') : command?.date}">
                                         </div>
                                     </div>
                                 </div>

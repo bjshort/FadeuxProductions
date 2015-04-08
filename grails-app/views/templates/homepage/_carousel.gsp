@@ -3,7 +3,7 @@
         <div id="intro" class="hidden-xs">
             <h1>${content?.title ?: "You've made it to Fadeux..."}</h1>
             <g:if test="${content.description}">
-                <p>${content.description}</p>
+                <p>${raw(content.description)}</p>
             </g:if>
             <g:else>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
