@@ -6,6 +6,10 @@
     <asset:javascript src="tinymce.min.js" />
     <asset:javascript src="masonry.pkgd.min.js" />
     <asset:javascript src="imagesloaded.pkgd.min.js" />
+    <asset:javascript src="jquery-ui.min.js" />
+    <asset:stylesheet src="jquery-ui.min.css" />
+    <asset:javascript src="jquery.fancybox.pack.js" />
+    <asset:stylesheet src="jquery.fancybox.css" />
 </head>
 <body>
 <script type="text/javascript">
@@ -148,6 +152,21 @@
                             </div>
                         </div>
 
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="date">Date</label>
+                                            <input id="date" name="date" type="text" class="form-control" placeholder="Select a date..." aria-describedby="basic-addon2" value="${show?.getShowDisplayDate() ?: command?.date}">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <button class="btn btn-primary" type="submit">${command?.id ? "Update & continue" : "Create & continue"}</button>
                         </div>
@@ -167,6 +186,15 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+
+        $( "#date" ).datepicker({
+            dateFormat: 'dd/mm/yy'
+        });
+    });
+</script>
 
 </body>
 </html>

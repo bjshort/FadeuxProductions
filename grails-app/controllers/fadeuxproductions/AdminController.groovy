@@ -7,6 +7,7 @@ import org.springframework.web.multipart.MultipartFile
 import com.amazonaws.services.s3.model.*
 
 import javax.imageio.ImageIO
+import java.text.SimpleDateFormat
 
 class AdminController {
 
@@ -32,7 +33,7 @@ class AdminController {
         def newShow
 
         if(command.id){
-            newShow = showService.updateShow(command.id, command.title, command.description, command.location)
+            newShow = showService.updateShow(command.id, command.title, command.description, command.location, command.date)
         } else {
             newShow = showService.createShow(command.asShow())
         }
@@ -127,7 +128,7 @@ class AdminController {
         def response = showService.deleteShow(id)
 
         if(response){
-            flash.error = response
+            flash.message = response
         } else {
             flash.error = "Show could not be deleted."
         }
@@ -153,6 +154,7 @@ class ShowCommand {
     String description
     String location
     String ticketURL
+    String date
 
     static constraints = {
         id nullable: true
@@ -174,17 +176,19 @@ class ShowCommand {
                 return "Location cannot be blank."
             }
         }
+        date nullable: true
     }
 
     static ShowCommand buildFromShow(Show show) {
         new ShowCommand(id: show.id, title: show.title, description: show.description, location: show.location,
-                        ticketURL: show.ticketURL)
+                        ticketURL: show.ticketURL, date: show.showDate ? show.showDate.toString() : "")
     }
 
     Show asShow() {
         new Show(id: this.id, title: this.title,
                 description: this.description, location: this.location,
-                ticketURL: this.ticketURL)
+                ticketURL: this.ticketURL,
+                showDate: Date.parse('d/M/yy', this.date))
     }
 
 

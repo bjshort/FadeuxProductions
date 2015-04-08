@@ -22,7 +22,9 @@
                 <div class="bubble sidebar">
                     <h3>More Info</h3>
                     <p><span class="glyphicon glyphicon-map-marker"> </span> <a target="_blank" href="https://www.google.co.uk/maps/search/${show?.location}">${show?.location}</a></p>
-                    <p><span class="glyphicon glyphicon-time"> </span> Tuesday 31st Aug, 7pm</p>
+                    <g:if test="${show?.getShowDate()}">
+                        <p><span class="glyphicon glyphicon-time"> </span> ${show.getShowDisplayDate()}</p>
+                    </g:if>
                     <g:if test="${show?.ticketURL}">
                         <p><span class="glyphicon glyphicon-credit-card"> </span> <a target="_blank" href="${show?.ticketURL?.contains("http") ? show?.ticketURL : "http://" + show?.ticketURL}">Buy tickets</a></p>
                     </g:if>

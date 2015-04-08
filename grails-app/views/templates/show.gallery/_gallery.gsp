@@ -43,11 +43,17 @@
     </g:if>
 </div>
 
+<g:if test="${show.coverImage}">
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var url = '${show.coverImage.storedPath}';
+            $('#container').css('background-image', 'url("' + url + '")');
+        });
+    </script>
+</g:if>
+
 <script type="text/javascript">
     $(document).ready(function(){
-        var url = '${show.coverImage.storedPath}';
-        $('#container').css('background-image', 'url("' + url + '")');
-
         var $container = $('#gallery');
 
         $container.imagesLoaded( function() {
@@ -71,7 +77,7 @@
 
         /* Apply fancybox to multiple items */
 
-        $(".gallery-item a").fancybox({
+        $('.gallery-item a').fancybox({
             'transitionIn'	:	'elastic',
             'transitionOut'	:	'elastic',
             'speedIn'		:	600,

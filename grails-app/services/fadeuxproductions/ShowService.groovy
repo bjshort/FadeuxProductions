@@ -3,6 +3,8 @@ package fadeuxproductions
 import grails.transaction.NotTransactional
 import grails.transaction.Transactional
 
+import java.text.SimpleDateFormat
+
 @Transactional
 class ShowService {
 
@@ -14,11 +16,13 @@ class ShowService {
         show.save(failOnError: true)
     }
 
-    def updateShow(Long id, String title, String description, String location){
+    def updateShow(Long id, String title, String description, String location, String date){
         def show = Show.findById(id)
         show.title = title
         show.description = description
         show.location = location
+        println("DATe String: " + date)
+        show.showDate = Date.parse('d/M/yy', date)
         show.save(failOnError: true)
     }
 

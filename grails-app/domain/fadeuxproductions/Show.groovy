@@ -9,6 +9,7 @@ class Show {
     Asset coverImage
     Asset thumbnail
     Date dateCreated
+    Date showDate
 
     static hasMany = [images: Asset]
 
@@ -16,6 +17,7 @@ class Show {
         coverImage nullable: true
         thumbnail nullable: true
         ticketURL nullable: true
+        showDate nullable: true
         description maxSize: 10000
     }
 
@@ -29,6 +31,14 @@ class Show {
             thumbnail?.storedPath
         } else {
             "/assets/thumbnail-blank.jpg"
+        }
+    }
+
+    def getShowDisplayDate(){
+        if(showDate){
+            return this.showDate.format('EEEE, d') + DateUtils.getDateSuffix(Integer.parseInt(this.showDate.format('d'))) + this.showDate.format(' MMMM yyyy')
+        } else {
+            return null
         }
     }
 }
