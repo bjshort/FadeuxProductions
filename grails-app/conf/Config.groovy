@@ -153,3 +153,4 @@ grails.plugin.awssdk.region = 'eu-west-1'
 
 
 grails.plugin.springsecurity.logout.postOnly = false
+grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/admin'
